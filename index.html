@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="theme-color" content="#0b1020">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
 </head>
 <body>
 
@@ -244,8 +244,11 @@
 
       <form class="form" id="contactForm" novalidate>
         <!-- Piège à robots : invisible et hors du parcours clavier.
-             Un visiteur ne le remplit jamais, un robot presque toujours. -->
-        <div class="hp" aria-hidden="true">
+             Un visiteur ne le remplit jamais, un robot presque toujours.
+             Masqué en style en ligne à dessein : ainsi le champ reste caché
+             même si la feuille de style n'est pas encore chargée ou est
+             servie depuis un cache périmé. -->
+        <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="website">Ne pas remplir</label>
           <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
         </div>
@@ -303,7 +306,7 @@
   </div>
 </footer>
 
-<script src="assets/js/projects.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/projects.js?v=2"></script>
+<script src="assets/js/main.js?v=2"></script>
 </body>
 </html>
