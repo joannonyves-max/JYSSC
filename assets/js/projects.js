@@ -18,19 +18,21 @@
 
 window.JYSSC_PROJECTS = [
   {
-    name: "GenCoAide",
-    initials: "GC",
+    name: "GencoAide",
+    initials: "GA",
     image: "",
     status: "live",
     statusLabel: "En ligne",
-    category: "Application",
+    category: "Application web & mobile",
     description:
-      "Ma première application, pensée pour simplifier le quotidien de ses utilisateurs. " +
-      "Un outil simple, accessible et conçu pour aller droit au but. " +
-      "[À COMPLÉTER : décrivez ici précisément ce que fait GenCoAide et pour qui.]",
-    tags: ["Application", "Web", "Mobile"],
-    url: "",
-    urlLabel: "Découvrir l'application"
+      "L'assistant administratif du quotidien. Prenez un papier en photo : GencoAide le lit, " +
+      "le classe automatiquement au bon endroit et n'oublie aucune échéance. Il monte aussi " +
+      "vos dossiers CAF, retraite, MDPH ou logement en vous indiquant les pièces manquantes, " +
+      "et permet d'aider un proche sans jamais empiéter sur sa vie privée. " +
+      "Documents chiffrés en AES-256, hébergés en Europe.",
+    tags: ["Classement automatique", "Hors connexion", "Chiffrement AES-256", "RGPD · Europe"],
+    url: "https://gencoaide.fr",
+    urlLabel: "Découvrir GencoAide"
   },
   {
     name: "Votre projet ?",
