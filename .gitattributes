@@ -1,0 +1,12 @@
+# Le depot stocke tout en LF : le serveur est sous Linux.
+* text=auto eol=lf
+
+# Fichiers executes cote serveur : LF obligatoire
+*.sh   text eol=lf
+*.php  text eol=lf
+
+# Binaires : ne pas convertir
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
