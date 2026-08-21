@@ -331,3 +331,11 @@ ul,ol{ margin:0; padding:0; list-style:none }
   *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
   .reveal{ opacity:1; transform:none }
 }
+
+/* --- Piège à robots (invisible, ne pas afficher) ------------------------ */
+.hp{
+  position:absolute !important;
+  left:-9999px !important;
+  width:1px; height:1px;
+  overflow:hidden;
+}

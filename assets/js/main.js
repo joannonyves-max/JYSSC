@@ -122,10 +122,10 @@
   }
 
   /* --- Formulaire de contact -------------------------------------------- */
-  /* Sans serveur, le formulaire ouvre le client mail du visiteur.
-     Pour recevoir les messages directement par email, créez un compte sur
-     https://formspree.io (gratuit) et renseignez votre endpoint ci-dessous. */
-  var FORMSPREE_ENDPOINT = ""; // ex. "https://formspree.io/f/xxxxxxxx"
+  /* Envoi vers contact.php, sur le serveur. Si PHP n'est pas encore installé
+     ou que le serveur ne répond pas, bascule automatiquement sur le logiciel
+     de messagerie du visiteur : aucune demande n'est perdue. */
+  var ENDPOINT = "contact.php";
   var CONTACT_EMAIL = "contact@jyssc.fr";
 
   var form = document.getElementById("contactForm");
@@ -187,46 +187,67 @@
         name: form.elements.name.value.trim(),
         email: form.elements.email.value.trim(),
         subject: form.elements.subject.value,
-        message: form.elements.message.value.trim()
+        message: form.elements.message.value.trim(),
+        website: form.elements.website ? form.elements.website.value : ""
       };
 
-      if (FORMSPREE_ENDPOINT) {
-        var button = form.querySelector("button[type=submit]");
-        button.disabled = true;
-        say("Envoi en cours…", "");
+      var button = form.querySelector("button[type=submit]");
 
-        fetch(FORMSPREE_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data)
-        })
-          .then(function (res) {
-            if (!res.ok) throw new Error("HTTP " + res.status);
-            form.reset();
-            say("Merci ! Votre message a bien été envoyé. Je vous réponds rapidement.", "ok");
-          })
-          .catch(function () {
-            say("L'envoi a échoué. Vous pouvez m'écrire directement à " + CONTACT_EMAIL + ".", "ko");
-          })
-          .then(function () {
-            button.disabled = false;
-          });
+      // Repli : ouverture du logiciel de messagerie, pré-rempli.
+      var replierSurMailto = function () {
+        var body =
+          "Nom : " + data.name + "\n" +
+          "Email : " + data.email + "\n" +
+          "Sujet : " + data.subject + "\n\n" +
+          data.message;
+
+        window.location.href =
+          "mailto:" + CONTACT_EMAIL +
+          "?subject=" + encodeURIComponent("[Jyssc] " + data.subject) +
+          "&body=" + encodeURIComponent(body);
+
+        say("Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.", "ok");
+      };
+
+      if (!window.fetch) {
+        replierSurMailto();
         return;
       }
 
-      // Repli sans serveur : ouverture du client mail pré-rempli.
-      var body =
-        "Nom : " + data.name + "\n" +
-        "Email : " + data.email + "\n" +
-        "Sujet : " + data.subject + "\n\n" +
-        data.message;
+      button.disabled = true;
+      say("Envoi en cours…", "");
 
-      window.location.href =
-        "mailto:" + CONTACT_EMAIL +
-        "?subject=" + encodeURIComponent("[Jyssc] " + data.subject) +
-        "&body=" + encodeURIComponent(body);
-
-      say("Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.", "ok");
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) {
+          return res.json().catch(function () {
+            throw new Error("reponse illisible");
+          }).then(function (json) {
+            return { status: res.status, json: json };
+          });
+        })
+        .then(function (r) {
+          if (r.json && r.json.ok) {
+            form.reset();
+            say(r.json.message, "ok");
+          } else if (r.status === 422 || r.status === 429) {
+            // Refus légitime du serveur : on affiche son message tel quel.
+            say(r.json.message, "ko");
+          } else {
+            throw new Error("HTTP " + r.status);
+          }
+        })
+        .catch(function () {
+          // PHP absent, serveur injoignable, page ouverte en local… : on ne
+          // laisse pas le visiteur dans une impasse.
+          replierSurMailto();
+        })
+        .then(function () {
+          button.disabled = false;
+        });
     });
   }
 })();

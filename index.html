@@ -243,6 +243,12 @@
       </div>
 
       <form class="form" id="contactForm" novalidate>
+        <!-- Piège à robots : invisible et hors du parcours clavier.
+             Un visiteur ne le remplit jamais, un robot presque toujours. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Ne pas remplir</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <div class="field">
           <label for="name">Nom</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
