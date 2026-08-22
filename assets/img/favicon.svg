@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jyssc">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4f8cff"/>
-      <stop offset="1" stop-color="#a855f7"/>
+    <linearGradient id="fond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123A6B"/>
+      <stop offset="1" stop-color="#3E8BD4"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#g)"/>
-  <text x="32" y="45" font-family="Segoe UI, system-ui, sans-serif" font-size="38"
-        font-weight="700" fill="#ffffff" text-anchor="middle">J</text>
+  <rect width="64" height="64" rx="14" fill="url(#fond)"/>
+  <!-- L'arc de sphères du logo, simplifié pour rester lisible en 16 px -->
+  <path d="M12 42 C 24 40, 38 30, 54 16" stroke="#9CC8EE" stroke-width="2.5"
+        fill="none" stroke-linecap="round" opacity=".75"/>
+  <circle cx="17" cy="41" r="3.4" fill="#7FB3DE"/>
+  <circle cx="29" cy="36" r="4"   fill="#A9D2F2"/>
+  <circle cx="41" cy="27" r="4.6" fill="#6FAEE4"/>
+  <circle cx="52" cy="17" r="5.2" fill="#BFE0F8"/>
 </svg>
