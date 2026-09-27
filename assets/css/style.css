@@ -207,15 +207,12 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 }
 .hero-points li strong{ color:var(--brand) }
 
-/* La trajectoire du logo, en fond du hero */
-.hero-trail{
-  position:absolute; z-index:-1; pointer-events:none;
-  right:-6%; top:4%; width:min(980px, 90vw); height:auto; opacity:.9;
-}
-.hero-trail .t-orb{ animation:float 6s ease-in-out infinite }
-.hero-trail .t-orb:nth-of-type(2){ animation-delay:-1.5s }
-.hero-trail .t-orb:nth-of-type(3){ animation-delay:-3s }
-.hero-trail .t-orb:nth-of-type(4){ animation-delay:-4.5s }
+/* La trajectoire du logo, sous l'encadré de code : quatre sphères qui grandissent */
+.hero-evolution{ display:block; width:100%; height:auto; margin-top:1.4rem; overflow:visible }
+.hero-evolution .t-orb{ transform-box:fill-box; transform-origin:center; animation:float 6s ease-in-out infinite; filter:drop-shadow(0 4px 6px rgba(18,58,107,.25)) }
+.hero-evolution .t-orb:nth-of-type(2){ animation-delay:-1.5s }
+.hero-evolution .t-orb:nth-of-type(3){ animation-delay:-3s }
+.hero-evolution .t-orb:nth-of-type(4){ animation-delay:-4.5s }
 @keyframes float{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-7px) } }
 
 /* Fenêtre de code : volontairement sombre, pour le contraste */
@@ -713,7 +710,6 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   .hero-inner,.about,.contact,.pricing,.trust,.approach{ grid-template-columns:1fr; gap:2rem }
   .contact-intro{ position:static }
   .hero-visual{ max-width:560px }
-  .hero-trail{ top:auto; bottom:-2%; right:-20%; width:140vw; opacity:.55 }
   .stats{ grid-template-columns:repeat(4, 1fr) }
   .project{ grid-template-columns:1fr }
   .project-cover{ min-height:200px; border-right:0; border-bottom:1px solid var(--line) }
