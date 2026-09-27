@@ -127,6 +127,14 @@
     });
   }
 
+  /* --- FAQ : un lien vers une question l'ouvre directement --------------- */
+  var ouvrirQuestion = function () {
+    var cible = location.hash && document.getElementById(location.hash.slice(1));
+    if (cible && cible.tagName === "DETAILS") cible.open = true;
+  };
+  window.addEventListener("hashchange", ouvrirQuestion);
+  ouvrirQuestion();
+
   /* --- Formulaire de contact guidé -------------------------------------- */
   /* Envoi vers contact.php, sur le serveur. Si le serveur ne répond pas,
      bascule automatiquement sur le logiciel de messagerie du visiteur :

@@ -347,6 +347,8 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .offer-price span{ color:var(--muted); font-size:.9rem; font-weight:600 }
 .offer-body > .btn{ margin-top:auto; align-self:flex-start }
 .offer-actions{ margin-top:auto; display:flex; flex-wrap:wrap; gap:.5rem }
+.offer-note{ margin:-.4rem 0 1rem; font-size:.85rem; color:var(--muted) }
+.offer-note a{ font-weight:700; white-space:nowrap }
 
 /* ==========================================================================
    POURQUOI JYSSC — chaque carte porte une vignette qui montre la promesse
@@ -520,6 +522,9 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   padding:1.9rem 1.8rem; box-shadow:var(--shadow-sm);
 }
 .rent h3{ font-size:1.25rem; margin-bottom:1.2rem }
+.rent-intro{ margin:0 0 1.5rem; padding:0 0 1.3rem; border-bottom:1px solid var(--line) }
+.rent-intro p{ color:var(--ink-soft); font-size:.97rem }
+.rent-intro p:last-child{ margin:0; color:var(--ink); font-weight:600 }
 .price-card{
   position:relative; overflow:hidden; border-radius:var(--radius); padding:2rem 1.9rem 1.9rem;
   background:linear-gradient(160deg, #fff 0%, #F3F8FE 100%);
@@ -622,6 +627,36 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 }
 .stat strong{ display:block; font-size:1.9rem; letter-spacing:-.04em; color:var(--brand) }
 .stat span{ font-size:.86rem; color:var(--muted); font-weight:600 }
+
+/* ==========================================================================
+   QUESTIONS FRÉQUENTES — volets dépliables (natifs, sans JavaScript)
+   ========================================================================== */
+.faq{ max-width:820px; margin:0 auto; display:grid; gap:.8rem }
+.faq-item{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-sm); transition:border-color .2s ease, box-shadow .2s ease;
+}
+.faq-item[open]{ border-color:#A9C8EA; box-shadow:var(--shadow) }
+.faq-item summary{
+  display:flex; align-items:center; gap:.9rem; cursor:pointer; list-style:none;
+  padding:1.1rem 1.3rem; font-weight:800; font-size:1.04rem; color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{ display:none }
+/* La sphère grossit quand la question est ouverte */
+.faq-item summary::before{
+  content:""; flex:none; width:12px; height:12px; border-radius:50%;
+  background:var(--orb-slate); box-shadow:0 2px 5px rgba(18,58,107,.25);
+  transition:width .2s ease, height .2s ease;
+}
+.faq-item[open] summary::before{ width:18px; height:18px; background:var(--orb) }
+.faq-item summary::after{
+  content:""; margin-left:auto; flex:none; width:9px; height:9px;
+  border-right:2px solid var(--muted); border-bottom:2px solid var(--muted);
+  transform:rotate(45deg) translateY(-3px); transition:transform .2s ease;
+}
+.faq-item[open] summary::after{ transform:rotate(-135deg) translateY(-2px) }
+.faq-item summary:hover{ color:var(--brand) }
+.faq-item p{ margin:0; padding:0 1.3rem 1.2rem 3.1rem; color:var(--muted) }
 
 /* ==========================================================================
    CONTACT — formulaire guidé
