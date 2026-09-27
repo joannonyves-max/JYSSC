@@ -345,7 +345,8 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .offer-price{ display:flex; align-items:baseline; gap:.45rem; flex-wrap:wrap; margin:.2rem 0 1rem }
 .offer-price strong{ font-size:1.4rem; letter-spacing:-.03em; color:var(--brand-deep) }
 .offer-price span{ color:var(--muted); font-size:.9rem; font-weight:600 }
-.offer-body .btn{ margin-top:auto; align-self:flex-start }
+.offer-body > .btn{ margin-top:auto; align-self:flex-start }
+.offer-actions{ margin-top:auto; display:flex; flex-wrap:wrap; gap:.5rem }
 
 /* ==========================================================================
    POURQUOI JYSSC — chaque carte porte une vignette qui montre la promesse
@@ -438,23 +439,36 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 /* ==========================================================================
    RÉALISATIONS
    ========================================================================== */
+.projects{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; align-items:stretch }
 .project{
-  display:grid; grid-template-columns:.9fr 1.1fr; overflow:hidden;
+  display:flex; flex-direction:column; overflow:hidden;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
   box-shadow:var(--shadow);
+  transition:transform .22s ease, box-shadow .22s ease;
 }
-.project + .project{ margin-top:1.4rem }
+.project:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg) }
 .project-cover{
-  display:grid; place-items:center; min-height:280px; padding:2rem;
-  background:
-    var(--cover, linear-gradient(135deg, #EEF4FB, #E3ECF7));
-  border-right:1px solid var(--line);
+  display:grid; place-items:center; height:250px; padding:1.6rem;
+  background:var(--cover, linear-gradient(135deg, #EEF4FB, #E3ECF7));
+  border-bottom:1px solid var(--line); overflow:hidden;
 }
-.project-cover img{ width:min(300px, 90%); height:auto; mix-blend-mode:multiply }
+.project-cover img{ width:min(280px, 85%); height:auto; mix-blend-mode:multiply }
+/* Capture d'écran d'un site : présentée dans un cadre de navigateur */
+.project-cover.is-shot{ padding:1.4rem 1.4rem 0; place-items:end center }
+.project-cover.is-shot img{
+  width:100%; height:100%; object-fit:cover; object-position:top; mix-blend-mode:normal;
+  border-radius:10px 10px 0 0; border:1px solid var(--line-strong); border-bottom:0;
+  box-shadow:0 -6px 24px rgba(18,40,68,.12);
+}
+.showcase-note{
+  display:flex; align-items:center; justify-content:center; gap:.7rem; text-align:left;
+  margin:1.8rem auto 2.4rem; max-width:720px; color:var(--ink-soft); font-weight:600;
+}
+.badge-demo{ color:#8A5424; border-color:#E6C7A6; background:#FBF1E7 }
 .project-cover .initials{ font-size:3rem; font-weight:800; letter-spacing:-.04em; color:var(--brand-deep) }
-.project-body{ padding:2rem 2rem 2.1rem; display:flex; flex-direction:column }
+.project-body{ padding:1.6rem 1.6rem 1.7rem; display:flex; flex-direction:column; flex:1 }
 .project-head{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.8rem }
-.project-head h3{ margin:0; font-size:1.5rem; margin-right:.2rem }
+.project-head h3{ margin:0; font-size:1.35rem; margin-right:.2rem }
 .project-body > p{ color:var(--muted); font-size:.97rem }
 .project-actions{ margin-top:auto; display:flex; gap:.6rem; flex-wrap:wrap }
 
@@ -711,8 +725,8 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   .contact-intro{ position:static }
   .hero-visual{ max-width:560px }
   .stats{ grid-template-columns:repeat(4, 1fr) }
-  .project{ grid-template-columns:1fr }
-  .project-cover{ min-height:200px; border-right:0; border-bottom:1px solid var(--line) }
+  .projects{ grid-template-columns:1fr }
+  .project-cover{ height:210px }
   .price-rows{ grid-template-columns:1fr }
 
   /* Les étapes passent à la verticale : chaque sphère grossit avec l'étape */

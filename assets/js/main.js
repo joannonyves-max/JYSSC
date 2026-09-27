@@ -60,9 +60,9 @@
     mount.innerHTML = projects.map(function (p) {
       var coverStyle = p.cover ? ' style="--cover:' + esc(p.cover) + '"' : "";
       var cover =
-        '<div class="project-cover"' + coverStyle + ">" +
+        '<div class="project-cover' + (p.screenshot ? " is-shot" : "") + '"' + coverStyle + ">" +
           (p.image
-            ? '<img src="' + esc(p.image) + '" alt="Logo ' + esc(p.name) + '" loading="lazy">'
+            ? '<img src="' + esc(p.image) + '" alt="' + (p.screenshot ? "Aperçu du site " : "Logo ") + esc(p.name) + '" loading="lazy">'
             : '<span class="initials" aria-hidden="true">' + esc(p.initials || "•") + "</span>") +
         "</div>";
 
