@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jyssc — Développement de logiciels, applications et sites web</title>
-<meta name="description" content="Jyssc — Développement, conception et maintenance de logiciels et d'applications informatiques. Création d'outils numériques, plateformes web et solutions logicielles pour particuliers et professionnels.">
-<meta name="author" content="Jyssc">
+<title>JYSSC — Sites vitrines et applications pour artisans et associations</title>
+<meta name="description" content="Sites vitrines dès 35 €/mois et applications web simples pour artisans, indépendants et associations. Sans engagement, hébergé en Europe.">
+<meta name="author" content="JYSSC">
 <link rel="canonical" href="https://www.jyssc.fr/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Jyssc — Développement de logiciels et applications">
-<meta property="og:description" content="Outils numériques, plateformes web et solutions logicielles pour particuliers et professionnels.">
+<meta property="og:title" content="JYSSC — Des outils simples qui vous font gagner du temps">
+<meta property="og:description" content="Sites vitrines et applications web pour artisans, indépendants et associations. Location mensuelle, sans engagement.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.jyssc.fr/">
 <meta property="og:image" content="https://www.jyssc.fr/assets/img/og-jyssc.png">
@@ -18,23 +18,49 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F4F8FC">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
+<!-- Dégradés des sphères, partagés par tous les SVG de la page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="g-orb" cx="32%" cy="28%" r="78%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".14" stop-color="#D6E8F8"/>
+      <stop offset=".42" stop-color="#6FA8E0"/>
+      <stop offset=".7" stop-color="#2A6DB8"/>
+      <stop offset="1" stop-color="#123A6B"/>
+    </radialGradient>
+    <radialGradient id="g-orb-slate" cx="32%" cy="28%" r="78%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".14" stop-color="#D5DCE6"/>
+      <stop offset=".42" stop-color="#8793A6"/>
+      <stop offset=".72" stop-color="#56657A"/>
+      <stop offset="1" stop-color="#2C3646"/>
+    </radialGradient>
+    <linearGradient id="g-trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#56657A" stop-opacity="0"/>
+      <stop offset=".35" stop-color="#7C8BA0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#3E8BD4"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="Jyssc, accueil">
+    <a class="brand" href="#top" aria-label="JYSSC, accueil">
       <img class="brand-logo" src="assets/img/logo-jyssc.png"
            alt="JYSSC — Just Your Smart Software Creation" width="518" height="280">
     </a>
 
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="#services">Services</a>
+      <a href="#offres">Offres</a>
       <a href="#realisations">Réalisations</a>
-      <a href="#methode">Méthode</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#apropos">À propos</a>
       <a class="btn btn-sm btn-primary" href="#contact">Me contacter</a>
     </nav>
@@ -47,40 +73,46 @@
 
 <main id="main">
 
-  <!-- HERO -->
+  <!-- ===================================================== ACCUEIL -->
   <section class="hero">
+    <!-- La trajectoire du logo, en grand, derrière le titre -->
+    <svg class="hero-trail" viewBox="0 0 1000 360" aria-hidden="true" focusable="false">
+      <path d="M0 330 C 260 330, 560 250, 1000 40" fill="none" stroke="url(#g-trail)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30 342 C 300 338, 590 264, 985 66" fill="none" stroke="url(#g-trail)" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+      <circle class="t-orb" cx="247" cy="300" r="9"  fill="url(#g-orb-slate)"/>
+      <circle class="t-orb" cx="432" cy="254" r="12" fill="url(#g-orb)"/>
+      <circle class="t-orb" cx="639" cy="183" r="15" fill="url(#g-orb)"/>
+      <circle class="t-orb" cx="847" cy="93"  r="20" fill="url(#g-orb)"/>
+    </svg>
+
     <div class="container hero-inner">
       <div class="hero-copy">
         <p class="eyebrow">Just Your Smart Software Creation</p>
-        <h1>Je conçois des <span class="grad">outils numériques</span> qui simplifient le quotidien.</h1>
+        <h1>Des outils simples qui vous font <span class="grad">gagner du temps.</span></h1>
         <p class="lead">
-          Développement, conception et maintenance de logiciels et d'applications informatiques.
-          Création d'outils numériques, plateformes web et solutions logicielles destinées aux
-          particuliers et aux professionnels.
+          Sites vitrines et applications web pour les artisans, les indépendants et les
+          associations. En location mensuelle, sans engagement : hébergement, mises à jour
+          et assistance compris.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Parler de votre projet</a>
-          <a class="btn btn-ghost" href="#realisations">Voir mes réalisations</a>
+          <a class="btn btn-primary" href="#offres">Voir les offres</a>
+          <a class="btn btn-ghost" href="#contact">Parler de mon activité</a>
         </div>
         <ul class="hero-points">
-          <li>Applications web &amp; mobiles</li>
-          <li>Sites internet sur mesure</li>
-          <li>Maintenance &amp; évolutions</li>
+          <li><span class="orb orb-slate" style="--s:10px"></span>Sans engagement</li>
+          <li><span class="orb" style="--s:12px"></span>Hébergé en Europe</li>
+          <li><span class="orb" style="--s:14px"></span>À partir de <strong>35 €</strong>/mois</li>
         </ul>
       </div>
 
       <div class="hero-visual" aria-hidden="true">
         <div class="window">
-          <div class="window-bar"><i></i><i></i><i></i><span>jyssc — projet.js</span></div>
+          <div class="window-bar"><i></i><i></i><i></i><span>jyssc — engagement.js</span></div>
           <pre class="code"><code><span class="c-key">const</span> jyssc = {
-  <span class="c-prop">metier</span>: <span class="c-str">"développement logiciel"</span>,
-  <span class="c-prop">pour</span>: [<span class="c-str">"particuliers"</span>, <span class="c-str">"professionnels"</span>],
-  <span class="c-prop">livre</span>: [
-    <span class="c-str">"applications"</span>,
-    <span class="c-str">"plateformes web"</span>,
-    <span class="c-str">"outils numériques"</span>
-  ],
-  <span class="c-fn">maintenir</span>() { <span class="c-key">return</span> <span class="c-str">"dans la durée"</span> }
+  <span class="c-prop">metier</span> : <span class="c-str">"éditeur d'outils numériques"</span>,
+  <span class="c-prop">pour</span>   : [<span class="c-str">"artisans"</span>, <span class="c-str">"indépendants"</span>, <span class="c-str">"associations"</span>],
+  <span class="c-prop">promet</span> : [<span class="c-str">"simple"</span>, <span class="c-str">"sans engagement"</span>, <span class="c-str">"à votre rythme"</span>],
+  <span class="c-fn">evoluer</span>() { <span class="c-key">return</span> <span class="c-str">"avec votre activité"</span> }
 }</code></pre>
         </div>
         <div class="glow"></div>
@@ -88,162 +120,502 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
+  <!-- ===================================================== OFFRES -->
+  <section class="section" id="offres">
     <div class="container">
-      <p class="eyebrow center">Ce que je fais</p>
-      <h2 class="center">Des services de A à Z</h2>
-      <p class="section-lead center">
-        De l'idée au déploiement, puis dans la durée : je prends en charge l'ensemble du cycle de vie
-        de votre projet informatique.
-      </p>
+      <header class="section-head">
+        <p class="eyebrow">Offres</p>
+        <h2>Nos offres</h2>
+        <p>Des solutions simples, adaptées à votre activité.</p>
+      </header>
 
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◧</div>
-          <h3>Applications sur mesure</h3>
-          <p>Conception et développement d'applications web et mobiles adaptées à vos besoins réels, pas l'inverse.</p>
+      <div class="offers">
+        <!-- Site vitrine -->
+        <article class="offer offer-featured">
+          <div class="scene" aria-hidden="true">
+            <div class="mock-browser">
+              <div class="mb-bar"><i></i><i></i><i></i><span>menuiserie-martin.fr</span></div>
+              <div class="mb-nav"><b>Menuiserie Martin</b><span></span><span></span><span></span></div>
+              <div class="mb-hero">
+                <div>
+                  <strong>Menuisier à Meximieux</strong>
+                  <small>Fenêtres, escaliers, agencement sur mesure.</small>
+                  <em>Demander un devis</em>
+                </div>
+                <div class="mb-photo"></div>
+              </div>
+            </div>
+          </div>
+          <div class="offer-body">
+            <div><span class="badge badge-live">Disponible</span></div>
+            <h3>Site vitrine</h3>
+            <p>
+              Votre entreprise ou votre association présentée clairement sur internet : vos
+              services, vos photos, vos coordonnées et un formulaire de contact. Rapide, adapté
+              au téléphone et pensé pour être trouvé sur Google.
+            </p>
+            <p class="offer-price"><strong>35 €/mois</strong><span>sans engagement</span></p>
+            <ul class="tags">
+              <li class="tag">3 à 5 pages</li>
+              <li class="tag">Référencement inclus</li>
+              <li class="tag">Mobile</li>
+              <li class="tag">Mises à jour comprises</li>
+            </ul>
+            <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Site vitrine">Demander mon site</a>
+          </div>
         </article>
 
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◈</div>
-          <h3>Sites internet &amp; plateformes</h3>
-          <p>Sites vitrines, plateformes métier, espaces clients : rapides, responsives et accessibles.</p>
+        <!-- Applications métier -->
+        <article class="offer">
+          <div class="scene" aria-hidden="true">
+            <div class="mock-doc">
+              <div class="md-head"><b>DEVIS</b><span>N° 2026-014</span></div>
+              <div class="md-line"><span>Pose parquet chêne, 32 m²</span><span>1 240 €</span></div>
+              <div class="md-line"><span>Plinthes assorties</span><span>180 €</span></div>
+              <div class="md-total"><span>Total</span><span>1 420 €</span></div>
+              <span class="md-stamp">Envoyé</span>
+            </div>
+          </div>
+          <div class="offer-body">
+            <div><span class="badge badge-soon">En préparation</span></div>
+            <h3>Applications métier</h3>
+            <p>
+              Devis, suivi de clients, gestion d'adhérents… Des outils simples pour gérer
+              votre activité au quotidien, à votre image et accessibles partout.
+            </p>
+            <p class="offer-price"><strong>Selon l'application</strong><span>sur simple demande</span></p>
+            <ul class="tags">
+              <li class="tag">Artisans</li>
+              <li class="tag">Indépendants</li>
+              <li class="tag">Associations</li>
+            </ul>
+            <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
+          </div>
         </article>
 
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◇</div>
-          <h3>Outils numériques</h3>
-          <p>Automatisation de tâches, tableaux de bord, petits logiciels utilitaires qui font gagner du temps.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◉</div>
-          <h3>Maintenance &amp; support</h3>
-          <p>Corrections, mises à jour, évolutions et surveillance : votre outil reste fiable au fil du temps.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◍</div>
-          <h3>Conseil &amp; cadrage</h3>
-          <p>Analyse du besoin, choix techniques, estimation : on clarifie le projet avant d'écrire une ligne de code.</p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">◎</div>
-          <h3>Reprise de projet</h3>
-          <p>Vous avez un projet existant à faire évoluer ou à sauver ? J'analyse et je reprends la main.</p>
+        <!-- Petits outils sur devis -->
+        <article class="offer">
+          <div class="scene" aria-hidden="true">
+            <div class="mock-dash">
+              <div class="mdb-kpi"><span>Demandes reçues</span><b>12<small>+4</small></b></div>
+              <div class="mdb-bars">
+                <i style="--h:32%;--o:10px"></i>
+                <i style="--h:50%;--o:13px"></i>
+                <i style="--h:66%;--o:16px"></i>
+                <i style="--h:88%;--o:20px"></i>
+              </div>
+              <div class="mdb-legend"><span>Juin</span><span>Juil.</span><span>Août</span><span>Sept.</span></div>
+            </div>
+          </div>
+          <div class="offer-body">
+            <div><span class="badge badge-quote">Sur devis</span></div>
+            <h3>Petits outils sur devis</h3>
+            <p>
+              Un formulaire en ligne, une petite boutique, un tableau de bord, une tâche
+              répétitive à automatiser, un module pour votre métier : je réalise des outils simples qui répondent à un
+              besoin précis. Chaque demande est étudiée au cas par cas.
+            </p>
+            <p class="offer-price"><strong>Devis gratuit</strong></p>
+            <ul class="tags">
+              <li class="tag">Formulaires</li>
+              <li class="tag">Tableaux de bord</li>
+              <li class="tag">Automatisations</li>
+              <li class="tag">Modules métier</li>
+            </ul>
+            <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Petit outil sur devis">Décrire mon besoin</a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- REALISATIONS -->
+  <!-- ===================================================== POURQUOI JYSSC -->
+  <section class="section section-alt" id="pourquoi">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Pourquoi JYSSC</p>
+        <h2>Pensé pour les petites structures</h2>
+        <p>Des outils à votre mesure, et quelqu'un pour vous accompagner.</p>
+      </header>
+
+      <div class="why">
+        <article class="why-card">
+          <div class="vignette" aria-hidden="true">
+            <span class="chip">Chantier</span>
+            <span class="chip chip-on">Intervention</span>
+            <span class="chip">Adhérent</span>
+            <span class="chip">Rendez-vous</span>
+          </div>
+          <h3>Adapté à votre métier</h3>
+          <p>Vos documents, vos rubriques, vos réglages : l'outil s'ajuste à votre façon de travailler, pas l'inverse.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="vignette v-timeline" aria-hidden="true">
+            <span class="v-step"><span class="orb orb-slate" style="--s:12px"></span>J1</span>
+            <span class="v-step"><span class="orb" style="--s:15px"></span>J3</span>
+            <span class="v-step"><span class="orb" style="--s:19px"></span><b>En ligne</b></span>
+          </div>
+          <h3>Opérationnel en quelques jours</h3>
+          <p>Pas de chantier de plusieurs mois : on part d'une base solide et on la règle pour vous.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="vignette" aria-hidden="true">
+            <span class="v-url">www.<em>votre-entreprise</em>.fr</span>
+            <span class="swatches">
+              <i style="background:#B8733A"></i><i style="background:#2F7D5B"></i><i style="background:#1F5FA8"></i>
+            </span>
+          </div>
+          <h3>À votre image</h3>
+          <p>Votre logo, vos couleurs et une adresse à votre nom.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="vignette v-toggle" aria-hidden="true">
+            <span>Mois par mois<small>Arrêt possible à tout moment</small></span>
+            <span class="switch"></span>
+          </div>
+          <h3>Sans engagement</h3>
+          <p>Vous payez au mois et vous arrêtez quand vous voulez, sans frais.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="vignette" aria-hidden="true">
+            <span class="chip">Europe</span>
+            <span class="chip">HTTPS</span>
+            <span class="chip chip-ok">Sauvegarde du jour</span>
+          </div>
+          <h3>Vos données en sécurité</h3>
+          <p>Hébergées en Europe, sauvegardées chaque jour, et récupérables à tout moment.</p>
+        </article>
+
+        <article class="why-card">
+          <div class="vignette v-chat" aria-hidden="true">
+            <span class="bubble bubble-client">Vous pouvez ajouter mes horaires d'été ?</span>
+            <span class="bubble bubble-me">C'est fait, c'est en ligne.</span>
+          </div>
+          <h3>Un humain au bout du fil</h3>
+          <p>Un seul interlocuteur pour l'aide, les corrections et les évolutions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== MA FAÇON DE TRAVAILLER -->
+  <section class="section" id="facon">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Ma façon de travailler</p>
+        <h2>Des outils utiles, à taille humaine</h2>
+      </header>
+
+      <div class="approach">
+        <div class="approach-col">
+          <h3>Ce qui me guide</h3>
+          <ul class="orb-list">
+            <li><span class="orb orb-slate" style="--s:12px"></span><span><strong>Vous accompagner dans la durée</strong>, à votre rythme, sans jamais vous enfermer.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Rester simple et accessible</strong> : des explications claires, sans jargon.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Aucune pression commerciale</strong> : vous décidez quand vous êtes prêt, et si vous l'êtes.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Aucune dépendance</strong> : votre nom de domaine et vos contenus restent à vous.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Des projets raisonnables et utiles</strong>, qui servent vraiment votre activité.</span></li>
+          </ul>
+        </div>
+
+        <div class="approach-col">
+          <h3>Ce que je privilégie</h3>
+          <ul class="orb-list">
+            <li><span class="orb orb-slate" style="--s:12px"></span><span><strong>Des sites légers et rapides</strong>, sans extensions à surveiller ni mises à jour à faire de votre côté.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Des outils qui font une chose et la font bien</strong>, plutôt que des plateformes qui font tout.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Des mises en place en jours ou en semaines</strong>, pas en mois.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Un travail soigné, à l'échelle humaine</strong>, plutôt qu'une production à la chaîne.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="not-offered">
+        <span class="not-offered-mark" aria-hidden="true">!</span>
+        <div>
+          <p>
+            <strong>Ce que je ne propose pas :</strong> les plateformes complexes, les gros chantiers
+            techniques et les projets qui demandent plusieurs mois de travail. D'autres le font très
+            bien ; je préfère faire simple, et bien.
+          </p>
+          <p>
+            Un besoin particulier ? J'étudie chaque demande sur devis, dès lors qu'elle reste
+            simple, utile et cohérente avec cette façon de travailler.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== RÉALISATIONS -->
   <section class="section section-alt" id="realisations">
     <div class="container">
-      <p class="eyebrow center">Réalisations</p>
-      <h2 class="center">Mes applications</h2>
-      <p class="section-lead center">
-        Les projets que je conçois et fais vivre. Cette liste s'enrichit au fil du temps.
-      </p>
+      <header class="section-head">
+        <p class="eyebrow">Réalisations</p>
+        <h2>Des outils en ligne, utilisés au quotidien</h2>
+      </header>
 
-      <div class="grid grid-2" id="projects">
+      <div id="projects">
         <!-- injecté depuis assets/js/projects.js -->
       </div>
 
-      <p class="center muted small" style="margin-top:2rem">
-        Un projet en tête ? Il peut figurer ici. <a href="#contact">Parlons-en</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- METHODE -->
-  <section class="section" id="methode">
-    <div class="container">
-      <p class="eyebrow center">Méthode</p>
-      <h2 class="center">Comment se déroule un projet</h2>
-
-      <ol class="steps">
-        <li>
-          <span class="step-num">1</span>
-          <h3>Échange &amp; besoin</h3>
-          <p>On discute de votre activité, de votre problème et de ce que l'outil doit vraiment résoudre.</p>
-        </li>
-        <li>
-          <span class="step-num">2</span>
-          <h3>Proposition</h3>
-          <p>Je reviens vers vous avec une solution, un périmètre clair, un délai et un devis gratuit.</p>
-        </li>
-        <li>
-          <span class="step-num">3</span>
-          <h3>Conception &amp; développement</h3>
-          <p>Je développe par étapes, avec des points réguliers pour que vous voyiez le projet avancer.</p>
-        </li>
-        <li>
-          <span class="step-num">4</span>
-          <h3>Livraison &amp; suivi</h3>
-          <p>Mise en ligne, prise en main, puis maintenance et évolutions selon vos besoins.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- A PROPOS -->
-  <section class="section section-alt" id="apropos">
-    <div class="container about">
-      <div>
-        <p class="eyebrow">À propos</p>
-        <h2>Jyssc, l'artisan de vos outils numériques</h2>
-        <p>
-          Jyssc est une auto-entreprise dédiée au développement, à la conception et à la maintenance
-          de logiciels et d'applications informatiques. Je crée des outils numériques, des plateformes
-          web et des solutions logicielles pour les particuliers comme pour les professionnels.
-        </p>
-        <p>
-          Travailler avec un développeur indépendant, c'est un interlocuteur unique, des décisions
-          rapides et un outil réellement adapté à votre façon de travailler — sans usine à gaz.
-        </p>
-        <ul class="checklist">
-          <li>Un seul interlocuteur, du premier échange à la maintenance</li>
-          <li>Devis gratuit et périmètre clair avant de démarrer</li>
-          <li>Code propre, documenté et qui vous appartient</li>
-          <li>Solutions hébergées en France ou en Europe</li>
-        </ul>
-      </div>
-
-      <aside class="stats">
-        <div class="stat"><strong>100%</strong><span>Sur mesure</span></div>
-        <div class="stat"><strong>0 €</strong><span>Le devis</span></div>
-        <div class="stat"><strong>Web</strong><span>&amp; mobile</span></div>
-        <div class="stat"><strong>Suivi</strong><span>Dans la durée</span></div>
+      <aside class="upcoming" aria-labelledby="upcoming-title">
+        <div>
+          <h3 id="upcoming-title">Prochainement</h3>
+          <p>La gamme s'agrandit, un outil après l'autre.</p>
+        </div>
+        <ol class="upcoming-track">
+          <li class="u-item">
+            <span class="u-orb"><span class="orb" style="--s:24px"></span></span>
+            <span><small>En préparation</small>Devis pour artisans</span>
+          </li>
+          <li class="u-item">
+            <span class="u-orb"><span class="orb" style="--s:20px"></span></span>
+            <span><small>Ensuite</small>Petite boutique en ligne</span>
+          </li>
+          <li class="u-item">
+            <span class="u-orb"><span class="orb" style="--s:17px"></span></span>
+            <span><small>Ensuite</small>Suivi de clients</span>
+          </li>
+          <li class="u-item">
+            <span class="u-orb"><span class="orb orb-slate" style="--s:14px"></span></span>
+            <span><small>Ensuite</small>Gestion d'association</span>
+          </li>
+        </ol>
+        <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
       </aside>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===================================================== COMMENT ÇA MARCHE -->
+  <section class="section" id="fonctionnement">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Quatre étapes, rien à installer</h2>
+        <p>Vous me parlez de votre activité ; je m'occupe du reste.</p>
+      </header>
+
+      <div class="journey">
+        <!-- La trajectoire du logo : une sphère par étape, de plus en plus grande -->
+        <div class="journey-track" aria-hidden="true">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+            <line x1="0" y1="88" x2="100" y2="8" stroke="url(#g-trail)" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="3" y1="94" x2="98" y2="18" stroke="url(#g-trail)" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linecap="round" opacity=".55"/>
+          </svg>
+          <span class="orb orb-slate" style="--s:20px; left:12.5%; top:78%"></span>
+          <span class="orb" style="--s:27px; left:37.5%; top:58%"></span>
+          <span class="orb" style="--s:34px; left:62.5%; top:38%"></span>
+          <span class="orb" style="--s:44px; left:87.5%; top:18%"></span>
+        </div>
+
+        <ol class="journey-steps">
+          <li>
+            <span class="orb orb-slate" style="--s:18px" aria-hidden="true"></span>
+            <div>
+              <h3>On échange</h3>
+              <p>15 minutes pour comprendre votre activité et ce dont vous avez besoin.</p>
+            </div>
+          </li>
+          <li>
+            <span class="orb" style="--s:24px" aria-hidden="true"></span>
+            <div>
+              <h3>On configure</h3>
+              <p>Vos textes, votre logo, vos réglages, votre adresse. Je m'occupe de tout.</p>
+            </div>
+          </li>
+          <li>
+            <span class="orb" style="--s:30px" aria-hidden="true"></span>
+            <div>
+              <h3>Vous utilisez</h3>
+              <p>Mise en ligne et prise en main accompagnée, sur ordinateur, tablette ou téléphone.</p>
+            </div>
+          </li>
+          <li>
+            <span class="orb" style="--s:38px" aria-hidden="true"></span>
+            <div>
+              <h3>Ça évolue</h3>
+              <p>Mises à jour et nouvelles fonctions comprises. Votre outil grandit avec votre activité.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== TARIFS ET LOCATION -->
+  <section class="section section-alt" id="tarifs">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Tarifs</p>
+        <h2>Des prix clairs, sans engagement</h2>
+        <p>Le prix affiché est le prix payé : TVA non applicable.</p>
+      </header>
+
+      <div class="pricing">
+        <div class="rent">
+          <h3>Pourquoi la location ?</h3>
+          <ul class="orb-list">
+            <li><span class="orb orb-slate" style="--s:12px"></span><span><strong>Un petit prix chaque mois</strong>, plutôt qu'une grosse facture au départ.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Mises à jour et assistance comprises.</strong></span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Un outil qui évolue</strong> avec votre activité.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Vous arrêtez quand vous voulez</strong>, sans frais.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Vos contenus et vos données</strong> récupérables à tout moment.</span></li>
+            <li><span class="orb" style="--s:12px"></span><span><strong>Envie d'être autonome ?</strong> Votre site peut être acheté et installé sur votre propre hébergement.</span></li>
+          </ul>
+        </div>
+
+        <article class="price-card">
+          <div class="price-head">
+            <h3>Site vitrine</h3>
+            <span class="badge badge-live">Disponible</span>
+          </div>
+          <p class="price"><strong>35 €</strong><span>/ mois</span></p>
+          <p class="price-note">Sans engagement · aucun frais de mise en service</p>
+          <ul class="checks">
+            <li>Site de 3 à 5 pages, sur ordinateur et téléphone</li>
+            <li>Formulaire de contact</li>
+            <li>Référencement de base inclus</li>
+            <li>Hébergement, connexion sécurisée (HTTPS) et sauvegardes</li>
+            <li>Mises à jour et assistance</li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="#contact" data-besoin="Site vitrine">Demander mon site</a>
+        </article>
+      </div>
+
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <h3>Applications métier</h3>
+            <p>Selon l'application et les modules choisis, tout compris.</p>
+          </div>
+          <strong>Sur demande</strong>
+        </div>
+        <div class="price-row">
+          <div>
+            <h3>Petits outils</h3>
+            <p>Étude au cas par cas, devis gratuit.</p>
+          </div>
+          <strong>Sur devis</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== SÉCURITÉ ET VISIBILITÉ -->
+  <section class="section" id="securite">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Sécurité et visibilité</p>
+        <h2>Du sérieux, sans que vous ayez à vous en occuper</h2>
+      </header>
+
+      <div class="trust">
+        <div class="trust-panel">
+          <h3>Vos données en sécurité</h3>
+          <div class="backup" aria-hidden="true">
+            <span class="backup-dots">
+              <i style="--h:12px"></i><i style="--h:16px"></i><i style="--h:14px"></i><i style="--h:20px"></i><i style="--h:18px"></i><i style="--h:24px"></i><i style="--h:26px"></i>
+            </span>
+            <span><b>Sauvegarde automatique</b><span>Chaque nuit, 7 jours sur 7</span></span>
+            <span class="chip chip-ok">OK</span>
+          </div>
+          <ul class="checks">
+            <li>Hébergement en Europe</li>
+            <li>Connexion sécurisée (HTTPS)</li>
+            <li>Sauvegarde chaque jour</li>
+            <li>Export à tout moment : CSV, PDF, JSON</li>
+            <li>Respect du RGPD</li>
+          </ul>
+          <div class="export" aria-hidden="true">
+            <span><b>Mes données</b><span>Tout récupérer en un clic</span></span>
+            <span class="export-btns"><i>CSV</i><i>PDF</i><i>JSON</i></span>
+          </div>
+          <p class="trust-foot">
+            Vos contenus et vos données restent les vôtres : vous les récupérez quand vous
+            le souhaitez.
+          </p>
+        </div>
+
+        <div class="trust-panel">
+          <h3>Visible sur Google</h3>
+          <div class="serp" aria-hidden="true">
+            <div class="serp-query">menuisier meximieux</div>
+            <div class="serp-site"><i></i>menuiserie-martin.fr</div>
+            <span class="serp-title">Menuiserie Martin — Menuisier à Meximieux (01)</span>
+            <p>Fenêtres, escaliers et agencement sur mesure. Devis gratuit sous 48 h…</p>
+          </div>
+          <p><strong>Inclus dans chaque site vitrine :</strong></p>
+          <ul class="checks">
+            <li>Structure et balises soignées</li>
+            <li>Titres et textes pensés pour les recherches de vos clients</li>
+            <li>Images optimisées et site rapide, adapté au téléphone</li>
+            <li>Connexion sécurisée (HTTPS)</li>
+            <li>Plan du site et déclaration à Google</li>
+          </ul>
+          <p>
+            Mes conseils offerts pour aller plus loin : fiche Google Business Profile, avis
+            clients, réseaux sociaux. Le référencement avancé (contenus réguliers, stratégie)
+            est possible sur devis, si le besoin reste raisonnable.
+          </p>
+          <p class="trust-foot">
+            Personne ne peut garantir la première place sur Google. Je vous garantis un site
+            bien construit pour y être trouvé.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== À PROPOS -->
+  <section class="section section-alt" id="apropos">
+    <div class="container about">
+      <div>
+        <p class="eyebrow">À propos</p>
+        <h2>JYSSC, un éditeur à taille humaine</h2>
+        <p>
+          JYSSC est une entreprise individuelle qui conçoit et fait vivre des outils numériques.
+          GencoAide, sa première application, accompagne les particuliers dans leurs démarches
+          administratives.
+        </p>
+        <p>
+          JYSSC propose aujourd'hui des sites vitrines et développe une gamme d'applications pour
+          les artisans, les indépendants et les associations : des outils qui font une chose, et
+          qui la font bien.
+        </p>
+        <p class="pledge">
+          Mon engagement est simple : vous accompagner dans la durée, à votre rythme, sans jamais
+          vous enfermer.
+        </p>
+      </div>
+
+      <aside class="stats" aria-label="JYSSC en chiffres">
+        <div class="stat"><strong>0</strong><span>engagement</span></div>
+        <div class="stat"><strong>1</strong><span>interlocuteur</span></div>
+        <div class="stat"><strong>UE</strong><span>hébergement</span></div>
+        <div class="stat"><strong>24 h</strong><span>pour vous répondre</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================================================== CONTACT -->
   <section class="section" id="contact">
     <div class="container contact">
-      <div>
+      <div class="contact-intro">
         <p class="eyebrow">Contact</p>
-        <h2>Parlons de votre projet</h2>
-        <p class="section-lead">
-          Une idée d'application, un site à créer ou un outil à faire évoluer ?
-          Décrivez-moi votre besoin : je vous réponds rapidement, le devis est gratuit.
+        <h2>Parlons de votre activité</h2>
+        <p>
+          Quelques questions pour bien comprendre votre besoin. Je vous réponds sous
+          24 h ouvrées.
         </p>
 
         <ul class="contact-list">
-          <li>
-            <span class="ci" aria-hidden="true">✉</span>
-            <a href="mailto:contact@jyssc.fr">contact@jyssc.fr</a>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">↩</span>
-            <span>Réponse sous 24 h ouvrées</span>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">⌖</span>
-            <span>France — interventions à distance</span>
-          </li>
+          <li><span class="orb orb-slate" style="--s:14px" aria-hidden="true"></span><a href="mailto:contact@jyssc.fr">contact@jyssc.fr</a></li>
+          <li><span class="orb" style="--s:17px" aria-hidden="true"></span><span>Réponse sous 24 h ouvrées</span></li>
+          <li><span class="orb" style="--s:20px" aria-hidden="true"></span><span>France, à distance</span></li>
         </ul>
       </div>
 
@@ -257,32 +629,93 @@
           <label for="website">Ne pas remplir</label>
           <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
         </div>
-        <div class="field">
-          <label for="name">Nom</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="subject">Sujet</label>
-          <select id="subject" name="subject">
-            <option>Création d'une application</option>
-            <option>Création d'un site internet</option>
-            <option>Outil numérique / automatisation</option>
-            <option>Maintenance / évolution d'un projet existant</option>
-            <option>Autre demande</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Votre projet</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
+
+        <!-- 1. Vous -->
+        <fieldset class="form-group">
+          <legend class="form-legend"><span class="num">1</span>Vous</legend>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="150" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone <em>(facultatif)</em></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30">
+          </div>
+        </fieldset>
+
+        <!-- 2. Votre activité -->
+        <fieldset class="form-group">
+          <legend class="form-legend"><span class="num">2</span>Votre activité</legend>
+          <div class="field">
+            <div class="pills" id="activite" role="radiogroup" aria-label="Votre activité">
+              <label class="pill"><input type="radio" name="activite" value="Artisan"><span>Artisan</span></label>
+              <label class="pill"><input type="radio" name="activite" value="Indépendant / profession libérale"><span>Indépendant / libéral</span></label>
+              <label class="pill"><input type="radio" name="activite" value="Commerce"><span>Commerce</span></label>
+              <label class="pill"><input type="radio" name="activite" value="Association"><span>Association</span></label>
+              <label class="pill"><input type="radio" name="activite" value="Particulier"><span>Particulier</span></label>
+              <label class="pill"><input type="radio" name="activite" value="Autre"><span>Autre</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="metier">Votre métier <em>(facultatif)</em></label>
+            <input id="metier" name="metier" type="text" maxlength="100" placeholder="Ex. : plombier, club de foot, coiffeuse…">
+          </div>
+        </fieldset>
+
+        <!-- 3. Votre besoin -->
+        <fieldset class="form-group">
+          <legend class="form-legend"><span class="num">3</span>Votre besoin</legend>
+          <div class="field">
+            <div class="pills" id="besoin" role="radiogroup" aria-label="Votre besoin">
+              <label class="pill"><input type="radio" name="besoin" value="Site vitrine"><span>Site vitrine</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Application métier"><span>Application métier</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Petit outil sur devis"><span>Petit outil sur devis</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Autre"><span>Autre</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Votre objectif</label>
+            <textarea id="message" name="message" rows="4" maxlength="5000" required
+                      placeholder="Qu'est-ce que cet outil doit changer pour vous ?"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 4. Formule et délai -->
+        <fieldset class="form-group">
+          <legend class="form-legend"><span class="num">4</span>Formule et délai <span class="muted small" style="font-weight:600">(facultatif)</span></legend>
+          <div class="field">
+            <span class="field-label">Vous préférez</span>
+            <div class="pills" id="formule" role="radiogroup" aria-label="Vous préférez">
+              <label class="pill"><input type="radio" name="formule" value="Abonnement mensuel"><span>Abonnement mensuel</span></label>
+              <label class="pill"><input type="radio" name="formule" value="Paiement en une fois"><span>Paiement en une fois</span></label>
+              <label class="pill"><input type="radio" name="formule" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="delai">Votre délai</label>
+              <select id="delai" name="delai">
+                <option value="">Choisir…</option>
+                <option>Dès que possible</option>
+                <option>Dans 1 à 3 mois</option>
+                <option>Dans plus de 3 mois</option>
+                <option>Pas de date précise</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <button class="btn btn-primary btn-block" type="submit">Envoyer ma demande</button>
         <p class="form-note small muted">
           Les informations transmises servent uniquement à répondre à votre demande.
+          <a href="mentions-legales.html#donnees">En savoir plus</a>.
         </p>
-        <button class="btn btn-primary btn-block" type="submit">Envoyer ma demande</button>
         <p class="form-status" id="formStatus" role="status"></p>
       </form>
     </div>
@@ -297,21 +730,22 @@
         <img class="brand-logo" src="assets/img/logo-jyssc.png"
              alt="JYSSC — Just Your Smart Software Creation" width="518" height="280">
       </a>
-      <p class="small muted"><strong>J</strong>ust <strong>Y</strong>our <strong>S</strong>mart <strong>S</strong>oftware <strong>C</strong>reation — développement, conception et maintenance de logiciels et d'applications informatiques.</p>
+      <p class="small muted"><strong>J</strong>ust <strong>Y</strong>our <strong>S</strong>mart <strong>S</strong>oftware <strong>C</strong>reation — sites vitrines et applications web pour artisans, indépendants et associations.</p>
     </div>
     <nav class="footer-nav" aria-label="Navigation de pied de page">
-      <a href="#services">Services</a>
+      <a href="#offres">Offres</a>
       <a href="#realisations">Réalisations</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#contact">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
     </nav>
   </div>
   <div class="container footer-bottom">
-    <p class="small muted">© <span id="year">2026</span> Jyssc — Tous droits réservés.</p>
+    <p class="small muted">© <span id="year">2026</span> JYSSC — Tous droits réservés.</p>
   </div>
 </footer>
 
-<script src="assets/js/projects.js?v=4"></script>
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/projects.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
 </body>
 </html>

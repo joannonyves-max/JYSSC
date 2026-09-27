@@ -50,17 +50,21 @@
   var mount = document.getElementById("projects");
   var projects = window.JYSSC_PROJECTS;
 
-  if (mount && Array.isArray(projects)) {
-    var esc = function (s) {
-      return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
-        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-      });
-    };
+  var esc = function (s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  };
 
+  if (mount && Array.isArray(projects)) {
     mount.innerHTML = projects.map(function (p) {
-      var cover = p.image
-        ? '<img class="project-cover" src="' + esc(p.image) + '" alt="' + esc(p.name) + '">'
-        : '<div class="project-cover" aria-hidden="true">' + esc(p.initials || "•") + "</div>";
+      var coverStyle = p.cover ? ' style="--cover:' + esc(p.cover) + '"' : "";
+      var cover =
+        '<div class="project-cover"' + coverStyle + ">" +
+          (p.image
+            ? '<img src="' + esc(p.image) + '" alt="Logo ' + esc(p.name) + '" loading="lazy">'
+            : '<span class="initials" aria-hidden="true">' + esc(p.initials || "•") + "</span>") +
+        "</div>";
 
       var status = p.status
         ? '<span class="badge badge-' + esc(p.status) + '">' + esc(p.statusLabel || "") + "</span>"
@@ -79,16 +83,16 @@
         ? '<a class="btn btn-sm btn-primary" href="' + esc(p.url) + '"' +
           (external ? ' target="_blank" rel="noopener"' : "") + ">" +
           esc(p.urlLabel || "En savoir plus") + "</a>"
-        : '<a class="btn btn-sm btn-ghost" href="#contact">En savoir plus</a>';
+        : "";
 
       return (
-        '<article class="project reveal">' +
+        '<article class="project">' +
           cover +
           '<div class="project-body">' +
             '<div class="project-head"><h3>' + esc(p.name) + "</h3>" + status + category + "</div>" +
             "<p>" + esc(p.description) + "</p>" +
             tags +
-            '<div class="project-actions">' + action + "</div>" +
+            (action ? '<div class="project-actions">' + action + "</div>" : "") +
           "</div>" +
         "</article>"
       );
@@ -97,7 +101,9 @@
 
   /* --- Apparition au défilement ----------------------------------------- */
   var targets = document.querySelectorAll(
-    ".card, .project, .steps li, .stat, .form, .about > div, .contact > div"
+    ".offer, .why-card, .approach-col, .not-offered, .project, .upcoming, " +
+    ".journey-steps li, .rent, .price-card, .price-row, .trust-panel, .stat, .form, " +
+    ".about > div, .contact-intro"
   );
 
   if ("IntersectionObserver" in window) {
@@ -121,52 +127,86 @@
     });
   }
 
-  /* --- Formulaire de contact -------------------------------------------- */
-  /* Envoi vers contact.php, sur le serveur. Si PHP n'est pas encore installé
-     ou que le serveur ne répond pas, bascule automatiquement sur le logiciel
-     de messagerie du visiteur : aucune demande n'est perdue. */
+  /* --- Formulaire de contact guidé -------------------------------------- */
+  /* Envoi vers contact.php, sur le serveur. Si le serveur ne répond pas,
+     bascule automatiquement sur le logiciel de messagerie du visiteur :
+     aucune demande n'est perdue. */
   var ENDPOINT = "contact.php";
   var CONTACT_EMAIL = "contact@jyssc.fr";
 
   var form = document.getElementById("contactForm");
   var status = document.getElementById("formStatus");
 
+  // Les boutons « Demander mon site », « Être informé »… pré-choisissent le besoin.
+  var preselect = function (value) {
+    if (!form) return;
+    Array.prototype.forEach.call(form.querySelectorAll('input[name="besoin"]'), function (r) {
+      r.checked = r.value === value;
+    });
+    setError(document.getElementById("besoin"), "");
+  };
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest("[data-besoin]") : null;
+    if (link) preselect(link.getAttribute("data-besoin"));
+  });
+
+  // Affiche ou retire le message d'erreur sous un champ (ou un groupe de pastilles).
+  var setError = function (el, message) {
+    if (!el) return;
+    var field = el.closest(".field");
+    var existing = field.querySelector(".error");
+    if (existing) existing.remove();
+    if (message) {
+      el.setAttribute("aria-invalid", "true");
+      var span = document.createElement("span");
+      span.className = "error";
+      span.textContent = message;
+      field.appendChild(span);
+    } else {
+      el.removeAttribute("aria-invalid");
+    }
+  };
+
   if (form) {
-    var setError = function (input, message) {
-      var field = input.closest(".field");
-      var existing = field.querySelector(".error");
-      if (existing) existing.remove();
-      if (message) {
-        input.setAttribute("aria-invalid", "true");
-        var span = document.createElement("span");
-        span.className = "error";
-        span.textContent = message;
-        field.appendChild(span);
-      } else {
-        input.removeAttribute("aria-invalid");
-      }
+    var radioValue = function (name) {
+      var checked = form.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : "";
     };
 
     var validate = function () {
-      var ok = true;
+      var first = null;
+      var check = function (el, ok, message) {
+        setError(el, ok ? "" : message);
+        if (!ok && !first) first = el;
+      };
+
       var name = form.elements.name;
       var email = form.elements.email;
       var message = form.elements.message;
 
-      if (!name.value.trim()) { setError(name, "Merci d'indiquer votre nom."); ok = false; }
-      else setError(name, "");
+      check(name, name.value.trim() !== "", "Merci d'indiquer votre nom.");
+      check(email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim()),
+        "Merci d'indiquer une adresse email valide.");
+      check(document.getElementById("activite"), radioValue("activite") !== "",
+        "Choisissez ce qui correspond le mieux à votre activité.");
+      check(document.getElementById("besoin"), radioValue("besoin") !== "",
+        "Choisissez le type de besoin.");
+      check(message, message.value.trim().length >= 10,
+        "Décrivez votre objectif en quelques mots (10 caractères minimum).");
 
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
-        setError(email, "Merci d'indiquer une adresse email valide."); ok = false;
-      } else setError(email, "");
-
-      if (message.value.trim().length < 10) {
-        setError(message, "Décrivez votre besoin en quelques mots (10 caractères minimum).");
-        ok = false;
-      } else setError(message, "");
-
-      return ok;
+      if (first) {
+        var target = first.querySelector ? (first.querySelector("input") || first) : first;
+        target.focus({ preventScroll: true });
+        first.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return !first;
     };
+
+    // Dès qu'un choix est fait, on efface l'erreur correspondante.
+    form.addEventListener("change", function (e) {
+      if (e.target.type === "radio") setError(document.getElementById(e.target.name), "");
+    });
 
     var say = function (text, kind) {
       if (!status) return;
@@ -179,32 +219,44 @@
       say("", "");
 
       if (!validate()) {
-        say("Merci de corriger les champs signalés.", "ko");
+        say("Merci de compléter les champs signalés.", "ko");
         return;
       }
 
+      var val = function (n) { return form.elements[n] ? form.elements[n].value.trim() : ""; };
       var data = {
-        name: form.elements.name.value.trim(),
-        email: form.elements.email.value.trim(),
-        subject: form.elements.subject.value,
-        message: form.elements.message.value.trim(),
-        website: form.elements.website ? form.elements.website.value : ""
+        name: val("name"),
+        email: val("email"),
+        phone: val("phone"),
+        activite: radioValue("activite"),
+        metier: val("metier"),
+        besoin: radioValue("besoin"),
+        message: val("message"),
+        formule: radioValue("formule"),
+        delai: val("delai"),
+        website: val("website")
       };
 
       var button = form.querySelector("button[type=submit]");
 
       // Repli : ouverture du logiciel de messagerie, pré-rempli.
       var replierSurMailto = function () {
-        var body =
-          "Nom : " + data.name + "\n" +
-          "Email : " + data.email + "\n" +
-          "Sujet : " + data.subject + "\n\n" +
-          data.message;
+        var lignes = [
+          "Nom : " + data.name,
+          "Email : " + data.email,
+          data.phone ? "Téléphone : " + data.phone : "",
+          "Activité : " + data.activite + (data.metier ? " (" + data.metier + ")" : ""),
+          "Besoin : " + data.besoin,
+          data.formule ? "Formule : " + data.formule : "",
+          data.delai ? "Délai : " + data.delai : "",
+          "",
+          data.message
+        ].filter(function (l, i, all) { return l !== "" || i === all.length - 2; });
 
         window.location.href =
           "mailto:" + CONTACT_EMAIL +
-          "?subject=" + encodeURIComponent("[Jyssc] " + data.subject) +
-          "&body=" + encodeURIComponent(body);
+          "?subject=" + encodeURIComponent("[JYSSC] " + data.besoin + " - " + data.name) +
+          "&body=" + encodeURIComponent(lignes.join("\n"));
 
         say("Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.", "ok");
       };
@@ -233,7 +285,7 @@
           if (r.json && r.json.ok) {
             form.reset();
             say(r.json.message, "ok");
-          } else if (r.status === 422 || r.status === 429) {
+          } else if (r.status === 400 || r.status === 422 || r.status === 429) {
             // Refus légitime du serveur : on affiche son message tel quel.
             say(r.json.message, "ko");
           } else {
@@ -241,8 +293,8 @@
           }
         })
         .catch(function () {
-          // PHP absent, serveur injoignable, page ouverte en local… : on ne
-          // laisse pas le visiteur dans une impasse.
+          // Serveur injoignable, page ouverte en local… : on ne laisse pas
+          // le visiteur dans une impasse.
           replierSurMailto();
         })
         .then(function () {

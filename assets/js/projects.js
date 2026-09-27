@@ -1,26 +1,29 @@
 /* ==========================================================================
    Jyssc — catalogue des réalisations
    --------------------------------------------------------------------------
-   POUR AJOUTER UNE NOUVELLE APPLICATION : copiez un bloc { ... } ci-dessous,
-   collez-le dans la liste et modifiez les valeurs. Rien d'autre à toucher.
+   POUR AJOUTER UNE RÉALISATION (par exemple le site d'un client) : copiez un
+   bloc { ... } ci-dessous, collez-le dans la liste et modifiez les valeurs.
+   Rien d'autre à toucher.
 
-   name        : nom de l'application
+   name        : nom de l'application ou du site
    initials    : 2-3 lettres affichées sur la vignette (si pas d'image)
-   image       : (optionnel) "assets/img/mon-app.png" — remplace les initiales
+   image       : (optionnel) "assets/img/mon-app.webp" — remplace les initiales
+   cover       : (optionnel) fond de la vignette, couleur ou dégradé CSS
    status      : "live" (en ligne) | "soon" (en développement) | "" (aucun)
    statusLabel : texte du badge de statut
-   category    : petit libellé (Application mobile, Site web, Outil…)
+   category    : petit libellé (Application web, Site vitrine…)
    description : 1 à 3 phrases de présentation
-   tags        : technologies ou mots-clés
-   url         : lien vers l'application ("" pour masquer le bouton)
-   urlLabel    : texte du bouton principal
+   tags        : mots-clés
+   url         : lien ("" pour masquer le bouton)
+   urlLabel    : texte du bouton
    ========================================================================== */
 
 window.JYSSC_PROJECTS = [
   {
     name: "GencoAide",
     initials: "GA",
-    image: "",
+    image: "assets/img/gencoaide.webp",
+    cover: "radial-gradient(420px 260px at 85% 100%, #FDEBDD, #FFFFFF 70%)",
     status: "live",
     statusLabel: "En ligne",
     category: "Application web & mobile",
@@ -33,19 +36,5 @@ window.JYSSC_PROJECTS = [
     tags: ["Classement automatique", "Hors connexion", "Chiffrement AES-256", "RGPD · Europe"],
     url: "https://gencoaide.fr",
     urlLabel: "Découvrir GencoAide"
-  },
-  {
-    name: "Votre projet ?",
-    initials: "+",
-    image: "",
-    status: "soon",
-    statusLabel: "Disponible",
-    category: "Nouveau projet",
-    description:
-      "Cette place est libre. Vous avez une idée d'application, de site internet ou " +
-      "d'outil numérique ? Parlons-en : le devis est gratuit et sans engagement.",
-    tags: ["Sur mesure", "Web", "Mobile", "Outils"],
-    url: "#contact",
-    urlLabel: "Proposer un projet"
   }
 ];

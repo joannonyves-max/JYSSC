@@ -46,10 +46,27 @@ if ($champ('website') !== '') {
     repondre(200, "Merci, votre message a bien ete envoye.", true); // silence volontaire
 }
 
-$nom     = $champ('name');
-$email   = $champ('email');
-$sujet   = $champ('subject');
-$message = $champ('message');
+// Choix proposés par le formulaire guidé : toute autre valeur est ignorée.
+$CHOIX = [
+    'activite' => ['Artisan', 'Indépendant / profession libérale', 'Commerce', 'Association', 'Particulier', 'Autre'],
+    'besoin'   => ['Site vitrine', 'Application métier', 'Petit outil sur devis', 'Autre'],
+    'formule'  => ['Abonnement mensuel', 'Paiement en une fois', 'Je ne sais pas encore'],
+    'delai'    => ['Dès que possible', 'Dans 1 à 3 mois', 'Dans plus de 3 mois', 'Pas de date précise'],
+];
+$choix = static function (string $cle) use ($champ, $CHOIX): string {
+    $valeur = $champ($cle);
+    return in_array($valeur, $CHOIX[$cle], true) ? $valeur : '';
+};
+
+$nom      = $champ('name');
+$email    = $champ('email');
+$tel      = $champ('phone');
+$activite = $choix('activite');
+$metier   = $champ('metier');
+$besoin   = $choix('besoin');
+$formule  = $choix('formule');
+$delai    = $choix('delai');
+$message  = $champ('message');
 
 // --- Validation ----------------------------------------------------------------
 $erreurs = [];
@@ -59,16 +76,26 @@ if ($nom === '' || mb_strlen($nom) > 100) {
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 150) {
     $erreurs[] = "Merci d'indiquer une adresse email valide.";
 }
-if (mb_strlen($message) < 10 || mb_strlen($message) > 5000) {
-    $erreurs[] = "Merci de decrire votre besoin (10 caracteres minimum).";
+if ($tel !== '' && !preg_match('/^[0-9 +().\-]{6,30}$/', $tel)) {
+    $erreurs[] = "Le numéro de téléphone semble incorrect.";
 }
-if ($sujet === '' || mb_strlen($sujet) > 120) {
-    $sujet = 'Demande via le site';
+if ($activite === '') {
+    $erreurs[] = "Merci de choisir votre activité.";
+}
+if ($besoin === '') {
+    $erreurs[] = "Merci de choisir le type de besoin.";
+}
+if (mb_strlen($message) < 10 || mb_strlen($message) > 5000) {
+    $erreurs[] = "Merci de décrire votre objectif (10 caractères minimum).";
+}
+if (mb_strlen($metier) > 100) {
+    $metier = mb_substr($metier, 0, 100);
 }
 // Injection d'en-tetes : un email legitime ne contient jamais de saut de ligne
-if (preg_match('/[\r\n]/', $nom . $email . $sujet)) {
+if (preg_match('/[\r\n]/', $nom . $email . $tel . $metier)) {
     repondre(400, "Requete invalide.");
 }
+$sujet = $besoin;
 if ($erreurs) {
     repondre(422, implode(' ', $erreurs));
 }
@@ -87,12 +114,17 @@ if (is_file($marqueur) && (time() - (int) filemtime($marqueur)) < $DELAI_ANTISPA
 // --- Enregistrement AVANT envoi : rien ne se perd -------------------------------
 $horodatage = date('Y-m-d H:i:s');
 $entree = [
-    'date'    => $horodatage,
-    'nom'     => $nom,
-    'email'   => $email,
-    'sujet'   => $sujet,
-    'message' => $message,
-    'ip'      => $ip,
+    'date'     => $horodatage,
+    'nom'      => $nom,
+    'email'    => $email,
+    'tel'      => $tel,
+    'activite' => $activite,
+    'metier'   => $metier,
+    'besoin'   => $besoin,
+    'formule'  => $formule,
+    'delai'    => $delai,
+    'message'  => $message,
+    'ip'       => $ip,
 ];
 @file_put_contents(
     $DOSSIER_DONNEES . '/demandes.jsonl',
@@ -103,15 +135,25 @@ $entree = [
 // --- Envoi de l'email ----------------------------------------------------------
 $objet = sprintf('[%s] %s - %s', $SITE, $sujet, $nom);
 
+$nonPrecise = static fn (string $v): string => $v !== '' ? $v : '-';
+$activiteComplete = $activite . ($metier !== '' ? " ({$metier})" : '');
+$telAffiche    = $nonPrecise($tel);
+$formuleAffichee = $nonPrecise($formule);
+$delaiAffiche  = $nonPrecise($delai);
+
 $corps = <<<TXT
 Nouvelle demande recue depuis {$SITE}.
 
-Nom     : {$nom}
-Email   : {$email}
-Sujet   : {$sujet}
-Date    : {$horodatage}
+Nom       : {$nom}
+Email     : {$email}
+Telephone : {$telAffiche}
+Activite  : {$activiteComplete}
+Besoin    : {$besoin}
+Formule   : {$formuleAffichee}
+Delai     : {$delaiAffiche}
+Date      : {$horodatage}
 
-Message :
+Objectif :
 {$message}
 
 --
