@@ -54,5 +54,22 @@ window.JYSSC_PROJECTS = [
     tags: ["4 pages", "Formulaire de contact", "Mobile", "Entreprise imaginaire"],
     url: "https://demo.jyssc.fr",
     urlLabel: "Voir le site d'exemple"
+  },
+  {
+    name: "Les Plaisirs du Terroir Aindinois",
+    initials: "PT",
+    image: "assets/img/demo-epicerie.webp",
+    screenshot: true,
+    cover: "linear-gradient(160deg, #F3EBDD, #E3D3BC)",
+    status: "demo",
+    statusLabel: "Exemple",
+    category: "Boutique en ligne",
+    description:
+      "Un exemple de boutique en ligne : catalogue par rayons, panier, commande et compte client. " +
+      "Le commerçant gère lui-même ses produits, ses prix et ses promotions. " +
+      "Une épicerie imaginaire, créée pour vous montrer le résultat.",
+    tags: ["Catalogue par rayons", "Panier et commande", "Promotions", "Entreprise imaginaire"],
+    url: "https://demo-epicerie.jyssc.fr",
+    urlLabel: "Voir la boutique d'exemple"
   }
 ];

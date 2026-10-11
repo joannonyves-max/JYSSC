@@ -49,7 +49,7 @@ if ($champ('website') !== '') {
 // Choix proposés par le formulaire guidé : toute autre valeur est ignorée.
 $CHOIX = [
     'activite' => ['Artisan', 'Indépendant / profession libérale', 'Commerce', 'Association', 'Particulier', 'Autre'],
-    'besoin'   => ['Site vitrine', 'Application métier', 'Petit outil sur devis', 'Autre'],
+    'besoin'   => ['Site vitrine', 'Boutique en ligne', 'Application métier', 'Petit outil sur devis', 'Autre'],
     'formule'  => ['Abonnement mensuel', 'Paiement en une fois', 'Je ne sais pas encore'],
     'delai'    => ['Dès que possible', 'Dans 1 à 3 mois', 'Dans plus de 3 mois', 'Pas de date précise'],
 ];

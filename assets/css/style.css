@@ -327,10 +327,29 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .mdb-bars i:first-child::after{ background:var(--orb-slate) }
 .mdb-legend{ display:flex; justify-content:space-around; padding-top:5px; color:var(--muted) }
 
+/* Scène 4 : une boutique (produits, prix, promotion, panier) */
+.mock-shop{
+  width:100%; max-width:300px; background:#FBF7F0; border-radius:12px; overflow:hidden;
+  border:1px solid var(--line-strong); box-shadow:0 14px 30px rgba(18,40,68,.14); font-size:.6rem;
+}
+.ms-bar{ display:flex; align-items:center; justify-content:space-between; padding:7px 10px; background:#2B3A2E; color:#F3EBDD }
+.ms-bar b{ font-size:.7rem; letter-spacing:.02em }
+.ms-cart{ padding:2px 8px; border-radius:999px; background:#7B2232; color:#fff; font-weight:800 }
+.ms-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:7px; padding:9px }
+.ms-item{ position:relative; display:flex; flex-direction:column; gap:3px; padding:5px; border-radius:7px; background:#fff; border:1px solid #E8DDCC }
+.ms-item i{ display:block; height:44px; border-radius:5px; background:radial-gradient(circle at 35% 30%, var(--c1), var(--c2)) }
+.ms-item span{ color:#3A2E22; font-weight:700; line-height:1.2 }
+.ms-item b{ color:#7B2232; font-size:.66rem }
+.ms-item s{ color:#9A8B78; font-weight:600; font-size:.56rem }
+.ms-item em{
+  position:absolute; top:3px; right:3px; font-style:normal; font-weight:800; font-size:.5rem;
+  padding:1px 5px; border-radius:4px; background:#7B2232; color:#fff; letter-spacing:.04em;
+}
+
 /* ==========================================================================
    OFFRES
    ========================================================================== */
-.offers{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.4rem; align-items:stretch }
+.offers{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; align-items:stretch }
 .offer{
   display:flex; flex-direction:column; overflow:hidden;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
@@ -441,7 +460,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 /* ==========================================================================
    RÉALISATIONS
    ========================================================================== */
-.projects{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; align-items:stretch }
+.projects{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.4rem; align-items:stretch }
 .project{
   display:flex; flex-direction:column; overflow:hidden;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
@@ -483,7 +502,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 }
 .upcoming h3{ color:#fff; margin:0 0 .2rem }
 .upcoming p{ margin:0; font-size:.93rem; color:#B9CDE6 }
-.upcoming-track{ position:relative; display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem }
+.upcoming-track{ position:relative; display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem }
 .upcoming-track::before{
   content:""; position:absolute; left:8px; right:12%; top:18px; height:2px;
   background:linear-gradient(90deg, rgba(255,255,255,.6), rgba(255,255,255,.1));
@@ -550,7 +569,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   content:""; position:absolute; left:5px; top:calc(.28em + 5px); width:8px; height:4px;
   border-left:2px solid var(--ok); border-bottom:2px solid var(--ok); transform:rotate(-45deg);
 }
-.price-rows{ display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:1.4rem }
+.price-rows{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:1.4rem; margin-top:1.4rem }
 .price-row{
   display:flex; justify-content:space-between; align-items:center; gap:1rem;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
@@ -559,6 +578,9 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .price-row h3{ margin:0 0 .15rem; font-size:1.05rem }
 .price-row p{ margin:0; color:var(--muted); font-size:.9rem }
 .price-row strong{ white-space:nowrap; color:var(--brand-deep); font-size:1.05rem }
+.price-rows .price-row{ flex-direction:column; align-items:flex-start; justify-content:space-between; gap:.7rem }
+.price-row-shop{ border-color:#A9C8EA }
+.price-row-shop strong{ font-size:1.3rem }
 
 /* ==========================================================================
    SÉCURITÉ ET VISIBILITÉ
@@ -746,13 +768,9 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 /* --- Responsive --------------------------------------------------------- */
 @media (max-width: 1020px){
   .code{ font-size:.78rem }
-  .offers{ grid-template-columns:1fr 1fr }
-  .offers .offer:last-child{ grid-column:1 / -1 }
-  .offers .offer:last-child{ display:grid; grid-template-columns:1fr 1fr }
-  .offers .offer:last-child .scene{ height:auto; border-bottom:0; border-right:1px solid var(--line) }
   .why{ grid-template-columns:1fr 1fr }
   .upcoming{ grid-template-columns:1fr; gap:1.4rem }
-  .upcoming-track{ grid-template-columns:repeat(2, 1fr); row-gap:1.2rem }
+  .upcoming-track{ grid-template-columns:repeat(3, 1fr); row-gap:1.2rem }
   .upcoming-track::before{ display:none }
 }
 @media (max-width: 900px){
@@ -787,8 +805,6 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   .nav > a.btn{ margin-top:1rem; border-bottom:none; justify-content:center }
 
   .offers,.why{ grid-template-columns:1fr }
-  .offers .offer:last-child{ display:flex }
-  .offers .offer:last-child .scene{ height:196px; border-right:0; border-bottom:1px solid var(--line) }
   .form-row{ grid-template-columns:1fr; gap:0 }
   .form-row .field{ margin-bottom:1rem }
 }

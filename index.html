@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JYSSC — Sites vitrines et applications pour artisans et associations</title>
-<meta name="description" content="Sites vitrines dès 35 €/mois et applications web simples pour artisans, indépendants et associations. Sans engagement, hébergé en Europe.">
+<title>JYSSC — Sites vitrines, boutiques et applications pour artisans et associations</title>
+<meta name="description" content="Sites vitrines dès 35 €/mois, boutiques en ligne dès 69 €/mois et applications web simples pour artisans, commerçants et associations. Sans engagement, hébergé en Europe.">
 <meta name="author" content="JYSSC">
 <link rel="canonical" href="https://www.jyssc.fr/">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#F4F8FC">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body id="top">
 
@@ -171,6 +171,44 @@
           </div>
         </article>
 
+        <!-- Boutique en ligne -->
+        <article class="offer offer-featured">
+          <div class="scene" aria-hidden="true">
+            <div class="mock-shop">
+              <div class="ms-bar"><b>Plaisirs du Terroir</b><span class="ms-cart">Panier · 2</span></div>
+              <div class="ms-grid">
+                <div class="ms-item"><i style="--c1:#F1D9A0;--c2:#C99A4E"></i><span>Comté 18 mois</span><b>8,90 €</b></div>
+                <div class="ms-item"><i style="--c1:#8E3445;--c2:#4A1622"></i><span>Rouge du Bugey</span><b><s>13,90 €</s> 12,50 €</b><em>Promo</em></div>
+                <div class="ms-item"><i style="--c1:#F6CD63;--c2:#D6922A"></i><span>Miel de printemps</span><b>7,20 €</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="offer-body">
+            <div><span class="badge badge-live">Disponible</span></div>
+            <h3>Boutique en ligne</h3>
+            <p>
+              Vendez vos produits en ligne, à votre image : catalogue par rayons, panier,
+              paiement sécurisé, retrait ou livraison. Vous ajoutez vos produits, vos prix
+              et vos promotions vous-même, depuis votre espace.
+            </p>
+            <p class="offer-price"><strong>Dès 69 €/mois</strong><span>sans engagement</span></p>
+            <p class="offer-note">
+              69 €/mois jusqu'à 30 produits, 99 €/mois jusqu'à 100 produits.
+              Les paiements arrivent directement sur votre compte.
+            </p>
+            <ul class="tags">
+              <li class="tag">Paiement sécurisé</li>
+              <li class="tag">Compte client</li>
+              <li class="tag">Promotions</li>
+              <li class="tag">Mobile</li>
+            </ul>
+            <div class="offer-actions">
+              <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Boutique en ligne">Demander ma boutique</a>
+              <a class="btn btn-ghost btn-sm" href="https://demo-epicerie.jyssc.fr" target="_blank" rel="noopener">Voir un exemple de boutique</a>
+            </div>
+          </div>
+        </article>
+
         <!-- Applications métier -->
         <article class="offer">
           <div class="scene" aria-hidden="true">
@@ -217,8 +255,8 @@
             <div><span class="badge badge-quote">Sur devis</span></div>
             <h3>Petits outils sur devis</h3>
             <p>
-              Un formulaire en ligne, une petite boutique, un tableau de bord, une tâche
-              répétitive à automatiser, un module pour votre métier : je réalise des outils simples qui répondent à un
+              Un formulaire en ligne, un tableau de bord, une tâche répétitive à
+              automatiser, un module pour votre métier : je réalise des outils simples qui répondent à un
               besoin précis. Chaque demande est étudiée au cas par cas.
             </p>
             <p class="offer-price"><strong>Devis gratuit</strong></p>
@@ -385,11 +423,7 @@
             <span><small>En préparation</small>Devis pour artisans</span>
           </li>
           <li class="u-item">
-            <span class="u-orb"><span class="orb" style="--s:20px"></span></span>
-            <span><small>Ensuite</small>Petite boutique en ligne</span>
-          </li>
-          <li class="u-item">
-            <span class="u-orb"><span class="orb" style="--s:17px"></span></span>
+            <span class="u-orb"><span class="orb" style="--s:19px"></span></span>
             <span><small>Ensuite</small>Suivi de clients</span>
           </li>
           <li class="u-item">
@@ -511,6 +545,14 @@
       </div>
 
       <div class="price-rows">
+        <div class="price-row price-row-shop">
+          <div>
+            <h3>Boutique en ligne</h3>
+            <p>69 €/mois jusqu'à 30 produits, 99 €/mois jusqu'à 100 produits, au-delà sur devis.
+            Sans engagement. Seuls les frais de votre prestataire de paiement s'ajoutent.</p>
+          </div>
+          <strong>Dès 69 €/mois</strong>
+        </div>
         <div class="price-row">
           <div>
             <h3>Applications métier</h3>
@@ -750,6 +792,7 @@
           <div class="field">
             <div class="pills" id="besoin" role="radiogroup" aria-label="Votre besoin">
               <label class="pill"><input type="radio" name="besoin" value="Site vitrine"><span>Site vitrine</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Boutique en ligne"><span>Boutique en ligne</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Application métier"><span>Application métier</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Petit outil sur devis"><span>Petit outil sur devis</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Autre"><span>Autre</span></label>
@@ -822,7 +865,7 @@
   </div>
 </footer>
 
-<script src="assets/js/projects.js?v=8"></script>
-<script src="assets/js/main.js?v=8"></script>
+<script src="assets/js/projects.js?v=9"></script>
+<script src="assets/js/main.js?v=9"></script>
 </body>
 </html>
