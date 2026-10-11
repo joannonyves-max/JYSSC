@@ -11,7 +11,7 @@
 
 // ---------------------------------------------------------------- CONFIGURATION
 $DESTINATAIRE   = 'contact@jyssc.fr';        // ou l'adresse arrivant sur Outlook
-$EXPEDITEUR     = 'no-reply@jyssc.fr';       // doit rester sur le domaine du site
+$EXPEDITEUR     = 'site@jyssc.fr';           // la boîte MX Plan qui envoie (OVH refuse tout autre expéditeur)
 $SITE           = 'Jyssc';
 $DOSSIER_DONNEES = '/var/lib/jyssc';         // HORS du dossier web, volontairement
 $DELAI_ANTISPAM = 30;                        // secondes minimum entre 2 envois / IP
