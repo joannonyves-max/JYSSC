@@ -176,10 +176,78 @@ $envoye = @mail(
     '-f' . $EXPEDITEUR
 );
 
+// --- Accusé de réception au visiteur, avec la copie de sa demande ---------------
+// Garde-fou : un formulaire qui écrit à l'adresse saisie pourrait servir à
+// inonder la boîte de quelqu'un d'autre. On limite donc les accusés à
+// $ACCUSES_MAX par adresse et par 24 heures.
+$ACCUSES_MAX = 2;
+$fichierAccuses = $DOSSIER_DONNEES . '/accuses-' . sha1(strtolower($email)) . '.txt';
+$recents = array_filter(
+    is_file($fichierAccuses) ? array_map('intval', file($fichierAccuses, FILE_IGNORE_NEW_LINES)) : [],
+    static fn (int $t): bool => $t > time() - 86400
+);
+
+$accuseEnvoye = false;
+if ($envoye && count($recents) < $ACCUSES_MAX) {
+    $corpsAccuse = <<<TXT
+Bonjour {$nom},
+
+Merci pour votre message : votre demande a bien été reçue.
+Je vous réponds sous 24 h ouvrées.
+
+Voici une copie de ce que vous m'avez envoyé :
+
+Activité  : {$activiteComplete}
+Besoin    : {$besoin}
+Formule   : {$formuleAffichee}
+Délai     : {$delaiAffiche}
+Téléphone : {$telAffiche}
+
+Votre objectif :
+{$message}
+
+Une précision à ajouter ? Répondez simplement à ce message.
+
+À très bientôt,
+
+Yves Joannon
+JYSSC — Just Your Smart Software Creation
+https://www.jyssc.fr
+
+--
+Vous recevez ce message car une demande a été envoyée avec cette adresse
+depuis le formulaire de jyssc.fr. Si ce n'est pas vous, ignorez-le simplement.
+TXT;
+
+    $entetesAccuse = [
+        'From: JYSSC <' . $EXPEDITEUR . '>',
+        'Reply-To: JYSSC <' . $DESTINATAIRE . '>',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 8bit',
+        'Auto-Submitted: auto-replied',
+    ];
+
+    $accuseEnvoye = @mail(
+        $email,
+        '=?UTF-8?B?' . base64_encode('Votre demande a bien été reçue — JYSSC') . '?=',
+        $corpsAccuse,
+        implode("\r\n", $entetesAccuse),
+        '-f' . $EXPEDITEUR
+    );
+
+    if ($accuseEnvoye) {
+        $recents[] = time();
+        @file_put_contents($fichierAccuses, implode(PHP_EOL, $recents) . PHP_EOL, LOCK_EX);
+    }
+}
+
+if ($accuseEnvoye) {
+    repondre(200, "Merci ! Votre demande a bien été envoyée. Vous allez recevoir un email de confirmation avec une copie de votre demande.", true);
+}
 if ($envoye) {
-    repondre(200, "Merci ! Votre demande a bien ete envoyee. Je vous reponds rapidement.", true);
+    repondre(200, "Merci ! Votre demande a bien été envoyée. Je vous réponds rapidement.", true);
 }
 
 // L'email a echoue mais la demande est enregistree : on ne ment pas au visiteur,
 // on ne l'inquiete pas non plus inutilement.
-repondre(200, "Merci ! Votre demande a bien ete enregistree. Je vous reponds rapidement.", true);
+repondre(200, "Merci ! Votre demande a bien été enregistrée. Je vous réponds rapidement.", true);
