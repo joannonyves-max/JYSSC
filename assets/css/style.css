@@ -460,7 +460,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 /* ==========================================================================
    RÉALISATIONS
    ========================================================================== */
-.projects{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.4rem; align-items:stretch }
+.projects{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; align-items:stretch }
 .project{
   display:flex; flex-direction:column; overflow:hidden;
   background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
@@ -476,6 +476,9 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .project-cover img{ width:min(280px, 85%); height:auto; mix-blend-mode:multiply }
 /* Capture d'écran d'un site : présentée dans un cadre de navigateur */
 .project-cover.is-shot{ padding:1.4rem 1.4rem 0; place-items:end center }
+/* Illustration faite pour la vignette : elle la remplit entièrement */
+.project-cover.is-full{ padding:0 }
+.project-cover.is-full img{ width:100%; height:100%; object-fit:cover; object-position:center top; mix-blend-mode:normal }
 .project-cover.is-shot img{
   width:100%; height:100%; object-fit:cover; object-position:top; mix-blend-mode:normal;
   border-radius:10px 10px 0 0; border:1px solid var(--line-strong); border-bottom:0;

@@ -9,6 +9,7 @@
    initials    : 2-3 lettres affichées sur la vignette (si pas d'image)
    image       : (optionnel) "assets/img/mon-app.webp" — remplace les initiales
    screenshot  : (optionnel) true si l'image est une capture d'écran de site
+   illustration: (optionnel) true si l'image est une illustration qui remplit la vignette
    cover       : (optionnel) fond de la vignette, couleur ou dégradé CSS
    status      : "live" (en ligne) | "soon" (en développement) | "demo" | "" (aucun)
    statusLabel : texte du badge de statut
@@ -71,5 +72,23 @@ window.JYSSC_PROJECTS = [
     tags: ["Catalogue par rayons", "Panier et commande", "Promotions", "Entreprise imaginaire"],
     url: "https://demo-epicerie.jyssc.fr",
     urlLabel: "Voir la boutique d'exemple"
+  },
+  {
+    name: "Lotissement du Clos des Éparres",
+    initials: "CE",
+    image: "assets/img/demo-lotissement.webp",
+    illustration: true,
+    cover: "linear-gradient(160deg, #F4F6F0, #E2EBDD)",
+    status: "demo",
+    statusLabel: "Exemple",
+    category: "Application pour associations",
+    description:
+      "L'application privée des habitants d'un lotissement : annonces du bureau, boîte aux lettres " +
+      "entre voisins, calendrier avec rappels, moments conviviaux, tours de rôle, documents, votes " +
+      "en ligne et comptes de l'association. Tout se gère depuis le téléphone. " +
+      "Découvrez-la sans mot de passe, comme habitant ou comme président du bureau.",
+    tags: ["Annonces", "Votes en ligne", "Calendrier", "Comptes de l'association"],
+    url: "https://demo-lotissement.jyssc.fr",
+    urlLabel: "Découvrir l'application"
   }
 ];
