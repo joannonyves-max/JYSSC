@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JYSSC — Sites vitrines, boutiques et applications pour artisans et associations</title>
-<meta name="description" content="Sites vitrines dès 35 €/mois, boutiques en ligne dès 69 €/mois et applications web simples pour artisans, commerçants et associations. Sans engagement, hébergé en Europe.">
+<meta name="description" content="Sites vitrines dès 35 €/mois, boutiques en ligne dès 69 €/mois, application pour lotissements à 2 € par lot : des outils simples pour artisans, commerçants et associations. Sans engagement, hébergé en Europe.">
 <meta name="author" content="JYSSC">
 <link rel="canonical" href="https://www.jyssc.fr/">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#F4F8FC">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=10">
+<link rel="stylesheet" href="assets/css/style.css?v=11">
 </head>
 <body id="top">
 
@@ -209,31 +209,41 @@
           </div>
         </article>
 
-        <!-- Applications métier -->
+        <!-- Application pour lotissements (associations syndicales libres) -->
         <article class="offer">
           <div class="scene" aria-hidden="true">
-            <div class="mock-doc">
-              <div class="md-head"><b>DEVIS</b><span>N° 2026-014</span></div>
-              <div class="md-line"><span>Pose parquet chêne, 32 m²</span><span>1 240 €</span></div>
-              <div class="md-line"><span>Plinthes assorties</span><span>180 €</span></div>
-              <div class="md-total"><span>Total</span><span>1 420 €</span></div>
-              <span class="md-stamp">Envoyé</span>
+            <div class="mock-app">
+              <div class="ma-top"><small>Lotissement</small><b>Clos des Éparres</b></div>
+              <div class="ma-card"><span class="ma-k">Annonce du bureau</span><strong>Fête des voisins samedi</strong></div>
+              <div class="ma-card">
+                <span class="ma-k">Vote en cours</span><strong>Éclairage de l'allée</strong>
+                <span class="ma-bar"><i></i></span>
+                <span class="ma-row"><span>14 votes sur 24</span><span>encore 3 jours</span></span>
+              </div>
             </div>
           </div>
           <div class="offer-body">
-            <div><span class="badge badge-soon">En préparation</span></div>
-            <h3>Applications métier</h3>
+            <div><span class="badge badge-live">Disponible</span></div>
+            <h3>Application pour lotissements</h3>
             <p>
-              Devis, suivi de clients, gestion d'adhérents… Des outils simples pour gérer
-              votre activité au quotidien, à votre image et accessibles partout.
+              L'application privée des habitants et du bureau de l'association syndicale :
+              annonces, messages entre voisins, calendrier, votes en ligne, documents et
+              comptes de l'association. Tout se gère depuis le téléphone.
             </p>
-            <p class="offer-price"><strong>Selon l'application</strong><span>sur simple demande</span></p>
+            <p class="offer-price"><strong>2 €/mois par lot</strong><span>sans engagement</span></p>
+            <p class="offer-note">
+              Exemple : un lotissement de 24 maisons, 48 € par mois pour toute l'association.
+            </p>
             <ul class="tags">
-              <li class="tag">Artisans</li>
-              <li class="tag">Indépendants</li>
-              <li class="tag">Associations</li>
+              <li class="tag">Votes en ligne</li>
+              <li class="tag">Annonces</li>
+              <li class="tag">Comptes</li>
+              <li class="tag">Mobile</li>
             </ul>
-            <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
+            <div class="offer-actions">
+              <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Application lotissement">Demander l'application</a>
+              <a class="btn btn-ghost btn-sm" href="https://demo-lotissement.jyssc.fr" target="_blank" rel="noopener">Découvrir l'application</a>
+            </div>
           </div>
         </article>
 
@@ -423,12 +433,8 @@
             <span><small>En préparation</small>Devis pour artisans</span>
           </li>
           <li class="u-item">
-            <span class="u-orb"><span class="orb" style="--s:19px"></span></span>
+            <span class="u-orb"><span class="orb orb-slate" style="--s:17px"></span></span>
             <span><small>Ensuite</small>Suivi de clients</span>
-          </li>
-          <li class="u-item">
-            <span class="u-orb"><span class="orb orb-slate" style="--s:14px"></span></span>
-            <span><small>Ensuite</small>Gestion d'association</span>
           </li>
         </ol>
         <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
@@ -555,10 +561,11 @@
         </div>
         <div class="price-row">
           <div>
-            <h3>Applications métier</h3>
-            <p>Selon l'application et les modules choisis, tout compris.</p>
+            <h3>Application pour lotissements</h3>
+            <p>2 € par mois et par lot, sans engagement. Exemple : 24 maisons, 48 € par mois
+            pour toute l'association.</p>
           </div>
-          <strong>Sur demande</strong>
+          <strong>2 €/mois par lot</strong>
         </div>
         <div class="price-row">
           <div>
@@ -793,7 +800,8 @@
             <div class="pills" id="besoin" role="radiogroup" aria-label="Votre besoin">
               <label class="pill"><input type="radio" name="besoin" value="Site vitrine"><span>Site vitrine</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Boutique en ligne"><span>Boutique en ligne</span></label>
-              <label class="pill"><input type="radio" name="besoin" value="Application métier"><span>Application métier</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Application lotissement"><span>Application lotissement</span></label>
+              <label class="pill"><input type="radio" name="besoin" value="Application métier"><span>Autre application</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Petit outil sur devis"><span>Petit outil sur devis</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Autre"><span>Autre</span></label>
             </div>
@@ -866,7 +874,7 @@
   </div>
 </footer>
 
-<script src="assets/js/projects.js?v=10"></script>
-<script src="assets/js/main.js?v=10"></script>
+<script src="assets/js/projects.js?v=11"></script>
+<script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

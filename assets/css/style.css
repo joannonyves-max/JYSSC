@@ -346,6 +346,21 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   padding:1px 5px; border-radius:4px; background:#7B2232; color:#fff; letter-spacing:.04em;
 }
 
+/* Scène 5 : l'application de lotissement (annonce, vote) */
+.mock-app{
+  width:100%; max-width:220px; background:#F4F6F0; border-radius:16px; overflow:hidden;
+  border:5px solid #1E2420; box-shadow:0 14px 30px rgba(18,40,68,.16); font-size:.6rem; color:#3B4A3E;
+}
+.ma-top{ background:#2E6B3F; color:#fff; padding:6px 10px 5px }
+.ma-top small{ display:block; font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; opacity:.75; font-weight:700 }
+.ma-top b{ font-size:.75rem }
+.ma-card{ display:block; margin:5px 6px; padding:4px 8px; background:#fff; border-radius:8px; border:1px solid #DDE6D8 }
+.ma-k{ display:block; font-size:.48rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:#2E6B3F }
+.ma-card strong{ display:block; color:#1E2420; font-size:.66rem }
+.ma-bar{ display:block; height:5px; margin:4px 0 2px; border-radius:3px; background:#E3EBDF; overflow:hidden }
+.ma-bar i{ display:block; height:100%; width:58%; background:linear-gradient(90deg, #2E6B3F, #5B9A63) }
+.ma-row{ display:flex; justify-content:space-between; font-size:.5rem; font-weight:700; color:#6A776C }
+
 /* ==========================================================================
    OFFRES
    ========================================================================== */
@@ -505,7 +520,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 }
 .upcoming h3{ color:#fff; margin:0 0 .2rem }
 .upcoming p{ margin:0; font-size:.93rem; color:#B9CDE6 }
-.upcoming-track{ position:relative; display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem }
+.upcoming-track{ position:relative; display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem }
 .upcoming-track::before{
   content:""; position:absolute; left:8px; right:12%; top:18px; height:2px;
   background:linear-gradient(90deg, rgba(255,255,255,.6), rgba(255,255,255,.1));
@@ -773,7 +788,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   .code{ font-size:.78rem }
   .why{ grid-template-columns:1fr 1fr }
   .upcoming{ grid-template-columns:1fr; gap:1.4rem }
-  .upcoming-track{ grid-template-columns:repeat(3, 1fr); row-gap:1.2rem }
+  .upcoming-track{ grid-template-columns:repeat(2, 1fr); row-gap:1.2rem }
   .upcoming-track::before{ display:none }
 }
 @media (max-width: 900px){
