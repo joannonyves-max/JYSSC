@@ -19,27 +19,10 @@
    url         : lien ("" pour masquer le bouton)
    urlLabel    : texte du bouton
    links       : (optionnel) plusieurs boutons : [{ url: "…", label: "…" }, …]
+   offer       : (optionnel) lien vers l'offre : { label: "Votre … : prix", href: "#offre-…" }
    ========================================================================== */
 
 window.JYSSC_PROJECTS = [
-  {
-    name: "GencoAide",
-    initials: "GA",
-    image: "assets/img/gencoaide.webp",
-    cover: "radial-gradient(420px 260px at 85% 100%, #FDEBDD, #FFFFFF 70%)",
-    status: "live",
-    statusLabel: "En ligne",
-    category: "Application web & mobile",
-    description:
-      "L'assistant administratif du quotidien. Prenez un papier en photo : GencoAide le lit, " +
-      "le classe automatiquement au bon endroit et n'oublie aucune échéance. Il monte aussi " +
-      "vos dossiers CAF, retraite, MDPH ou logement en vous indiquant les pièces manquantes, " +
-      "et permet d'aider un proche sans jamais empiéter sur sa vie privée. " +
-      "Documents chiffrés en AES-256, hébergés en Europe.",
-    tags: ["Classement automatique", "Hors connexion", "Chiffrement AES-256", "RGPD · Europe"],
-    url: "https://gencoaide.fr",
-    urlLabel: "Découvrir GencoAide"
-  },
   {
     name: "Menuiserie Martin",
     initials: "MM",
@@ -55,7 +38,8 @@ window.JYSSC_PROJECTS = [
       "Menuiserie Martin est une entreprise imaginaire, créée pour vous montrer le résultat.",
     tags: ["4 pages", "Formulaire de contact", "Mobile", "Entreprise imaginaire"],
     url: "https://demo.jyssc.fr",
-    urlLabel: "Voir le site d'exemple"
+    urlLabel: "Voir le site d'exemple",
+    offer: { label: "Votre site vitrine : 35 €/mois", href: "#offre-vitrine" }
   },
   {
     name: "Les Plaisirs du Terroir Aindinois",
@@ -72,7 +56,8 @@ window.JYSSC_PROJECTS = [
       "Une épicerie imaginaire, créée pour vous montrer le résultat.",
     tags: ["Catalogue par rayons", "Panier et commande", "Promotions", "Entreprise imaginaire"],
     url: "https://demo-epicerie.jyssc.fr",
-    urlLabel: "Voir la boutique d'exemple"
+    urlLabel: "Voir la boutique d'exemple",
+    offer: { label: "Votre boutique : dès 69 €/mois", href: "#offre-boutique" }
   },
   {
     name: "Lotissement du Clos des Éparres",
@@ -94,6 +79,25 @@ window.JYSSC_PROJECTS = [
     links: [
       { url: "https://demo-lotissement.jyssc.fr/decouvrir/habitant", label: "Je suis habitant" },
       { url: "https://demo-lotissement.jyssc.fr/decouvrir/bureau", label: "Je suis président du bureau" }
-    ]
+    ],
+    offer: { label: "L'application de votre lotissement : 2 €/mois par lot", href: "#offre-lotissement" }
+  },
+  {
+    name: "GencoAide",
+    initials: "GA",
+    image: "assets/img/gencoaide.webp",
+    cover: "radial-gradient(420px 260px at 85% 100%, #FDEBDD, #FFFFFF 70%)",
+    status: "live",
+    statusLabel: "En ligne",
+    category: "Application web & mobile",
+    description:
+      "L'assistant administratif du quotidien. Prenez un papier en photo : GencoAide le lit, " +
+      "le classe automatiquement au bon endroit et n'oublie aucune échéance. Il monte aussi " +
+      "vos dossiers CAF, retraite, MDPH ou logement en vous indiquant les pièces manquantes, " +
+      "et permet d'aider un proche sans jamais empiéter sur sa vie privée. " +
+      "Documents chiffrés en AES-256, hébergés en Europe.",
+    tags: ["Classement automatique", "Hors connexion", "Chiffrement AES-256", "RGPD · Europe"],
+    url: "https://gencoaide.fr",
+    urlLabel: "Découvrir GencoAide"
   }
 ];

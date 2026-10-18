@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#F4F8FC">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=12">
+<link rel="stylesheet" href="assets/css/style.css?v=13">
 </head>
 <body id="top">
 
@@ -58,10 +58,10 @@
     </a>
 
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="#offres">Offres</a>
       <a href="#realisations">Réalisations</a>
-      <a href="#tarifs">Tarifs</a>
+      <a href="#offres">Offres et tarifs</a>
       <a href="#apropos">À propos</a>
+      <a href="#faq">Questions</a>
       <a class="btn btn-sm btn-primary" href="#contact">Me contacter</a>
     </nav>
 
@@ -85,8 +85,8 @@
           et assistance compris.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#offres">Voir les offres</a>
-          <a class="btn btn-ghost" href="#contact">Parler de mon activité</a>
+          <a class="btn btn-primary" href="#realisations">Découvrir les réalisations</a>
+          <a class="btn btn-ghost" href="#offres">Offres et tarifs</a>
         </div>
         <ul class="hero-points">
           <li><span class="orb orb-slate" style="--s:10px"></span>Sans engagement</li>
@@ -119,175 +119,160 @@
     </div>
   </section>
 
-  <!-- ===================================================== OFFRES -->
-  <section class="section" id="offres">
+  <!-- ===================================================== RÉALISATIONS -->
+  <section class="section" id="realisations">
     <div class="container">
       <header class="section-head">
-        <p class="eyebrow">Offres</p>
-        <h2>Nos offres</h2>
-        <p>Des solutions simples, adaptées à votre activité.</p>
+        <p class="eyebrow">Réalisations</p>
+        <h2>Des réalisations à découvrir en ligne</h2>
+        <p>Essayez-les comme le feraient vos propres clients : tout est en ligne, sans inscription.</p>
       </header>
 
-      <div class="offers">
+      <div class="projects" id="projects">
+        <!-- injecté depuis assets/js/projects.js -->
+      </div>
+
+      <p class="showcase-note">
+        <span class="orb" style="--s:14px" aria-hidden="true"></span>
+        <span>Et demain, le vôtre ? Si vous le souhaitez, votre site rejoint les réalisations
+        présentées ici, avec un lien vers chez vous.</span>
+      </p>
+
+      <aside class="upcoming" aria-labelledby="upcoming-title">
+        <div>
+          <h3 id="upcoming-title">Prochainement</h3>
+          <p>La gamme s'agrandit, un outil après l'autre.</p>
+        </div>
+        <ol class="upcoming-track">
+          <li class="u-item">
+            <span class="u-orb"><span class="orb" style="--s:24px"></span></span>
+            <span><small>En préparation</small>Devis pour artisans</span>
+          </li>
+          <li class="u-item">
+            <span class="u-orb"><span class="orb orb-slate" style="--s:17px"></span></span>
+            <span><small>Ensuite</small>Suivi de clients</span>
+          </li>
+        </ol>
+        <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================================================== OFFRES ET TARIFS -->
+  <section class="section section-alt" id="offres">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Offres et tarifs</p>
+        <h2>Choisissez votre outil, je m'occupe du reste</h2>
+        <p>Le prix affiché est le prix payé : TVA non applicable, aucun frais de mise en service.
+        Vous réglez chaque mois ou une fois par an, au choix.</p>
+      </header>
+
+      <div class="plans">
         <!-- Site vitrine -->
-        <article class="offer offer-featured">
-          <div class="scene" aria-hidden="true">
-            <div class="mock-browser">
-              <div class="mb-bar"><i></i><i></i><i></i><span>menuiserie-martin.fr</span></div>
-              <div class="mb-nav"><b>Menuiserie Martin</b><span></span><span></span><span></span></div>
-              <div class="mb-hero">
-                <div>
-                  <strong>Menuisier à Meximieux</strong>
-                  <small>Fenêtres, escaliers, agencement sur mesure.</small>
-                  <em>Demander un devis</em>
-                </div>
-                <div class="mb-photo"></div>
-              </div>
-            </div>
+        <article class="plan" id="offre-vitrine" style="--accent:#B8733A; --accent-ink:#8A5424">
+          <p class="plan-kicker">Pour être trouvé</p>
+          <h3>Site vitrine</h3>
+          <p class="plan-pitch">Votre activité présentée clairement sur internet, à votre image.</p>
+          <p class="plan-price"><strong>35 €</strong><span>/ mois</span></p>
+          <p class="plan-sub">3 à 5 pages, tout compris.</p>
+          <ul class="checks">
+            <li>Sur ordinateur, tablette et téléphone</li>
+            <li>Formulaire de contact, avec accusé de réception</li>
+            <li>Pensé pour être trouvé sur Google</li>
+            <li>Hébergement, sauvegardes, mises à jour et assistance</li>
+          </ul>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="#contact" data-besoin="Site vitrine">Demander mon site</a>
+            <a class="btn btn-ghost" href="https://demo.jyssc.fr" target="_blank" rel="noopener">Voir l'exemple</a>
           </div>
-          <div class="offer-body">
-            <div><span class="badge badge-live">Disponible</span></div>
-            <h3>Site vitrine</h3>
-            <p>
-              Votre entreprise ou votre association présentée clairement sur internet : vos
-              services, vos photos, vos coordonnées et un formulaire de contact. Rapide, adapté
-              au téléphone et pensé pour être trouvé sur Google.
-            </p>
-            <p class="offer-price"><strong>35 €/mois</strong><span>sans engagement</span></p>
-            <p class="offer-note">
-              Location tout compris. Votre nom de domaine, vos textes et vos photos restent à vous.
-              <a href="#faq-arret">Et si j'arrête ?</a>
-            </p>
-            <ul class="tags">
-              <li class="tag">3 à 5 pages</li>
-              <li class="tag">Référencement inclus</li>
-              <li class="tag">Mobile</li>
-              <li class="tag">Mises à jour comprises</li>
-            </ul>
-            <div class="offer-actions">
-              <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Site vitrine">Demander mon site</a>
-              <a class="btn btn-ghost btn-sm" href="https://demo.jyssc.fr" target="_blank" rel="noopener">Voir un exemple de site</a>
-            </div>
-          </div>
+          <p class="plan-foot">Votre nom de domaine, vos textes et vos photos restent à vous.</p>
         </article>
 
         <!-- Boutique en ligne -->
-        <article class="offer offer-featured">
-          <div class="scene" aria-hidden="true">
-            <div class="mock-shop">
-              <div class="ms-bar"><b>Plaisirs du Terroir</b><span class="ms-cart">Panier · 2</span></div>
-              <div class="ms-grid">
-                <div class="ms-item"><i style="--c1:#F1D9A0;--c2:#C99A4E"></i><span>Comté 18 mois</span><b>8,90 €</b></div>
-                <div class="ms-item"><i style="--c1:#8E3445;--c2:#4A1622"></i><span>Rouge du Bugey</span><b><s>13,90 €</s> 12,50 €</b><em>Promo</em></div>
-                <div class="ms-item"><i style="--c1:#F6CD63;--c2:#D6922A"></i><span>Miel de printemps</span><b>7,20 €</b></div>
-              </div>
-            </div>
+        <article class="plan" id="offre-boutique" style="--accent:#7B2232; --accent-ink:#6A1D2B">
+          <p class="plan-kicker">Pour vendre</p>
+          <h3>Boutique en ligne</h3>
+          <p class="plan-pitch">Vos produits en vente sur internet, que vous gérez vous-même.</p>
+          <p class="plan-price"><small>dès</small><strong>69 €</strong><span>/ mois</span></p>
+          <p class="plan-sub">Jusqu'à 30 produits. 99 €/mois jusqu'à 100 produits.</p>
+          <ul class="checks">
+            <li>Catalogue par rayons, panier et compte client</li>
+            <li>Paiement sécurisé, retrait ou livraison</li>
+            <li>Vos produits, vos prix, vos promotions, depuis votre espace</li>
+            <li>Une facture envoyée à chaque commande</li>
+          </ul>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="#contact" data-besoin="Boutique en ligne">Demander ma boutique</a>
+            <a class="btn btn-ghost" href="https://demo-epicerie.jyssc.fr" target="_blank" rel="noopener">Voir l'exemple</a>
           </div>
-          <div class="offer-body">
-            <div><span class="badge badge-live">Disponible</span></div>
-            <h3>Boutique en ligne</h3>
-            <p>
-              Vendez vos produits en ligne, à votre image : catalogue par rayons, panier,
-              paiement sécurisé, retrait ou livraison. Vous ajoutez vos produits, vos prix
-              et vos promotions vous-même, depuis votre espace.
-            </p>
-            <p class="offer-price"><strong>Dès 69 €/mois</strong><span>sans engagement</span></p>
-            <p class="offer-note">
-              69 €/mois jusqu'à 30 produits, 99 €/mois jusqu'à 100 produits.
-              Les paiements arrivent directement sur votre compte.
-            </p>
-            <ul class="tags">
-              <li class="tag">Paiement sécurisé</li>
-              <li class="tag">Compte client</li>
-              <li class="tag">Promotions</li>
-              <li class="tag">Mobile</li>
-            </ul>
-            <div class="offer-actions">
-              <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Boutique en ligne">Demander ma boutique</a>
-              <a class="btn btn-ghost btn-sm" href="https://demo-epicerie.jyssc.fr" target="_blank" rel="noopener">Voir un exemple de boutique</a>
-            </div>
-          </div>
+          <p class="plan-foot">Les paiements arrivent directement sur votre compte.</p>
         </article>
 
-        <!-- Application pour lotissements (associations syndicales libres) -->
-        <article class="offer">
-          <div class="scene" aria-hidden="true">
-            <div class="mock-app">
-              <div class="ma-top"><small>Lotissement</small><b>Clos des Éparres</b></div>
-              <div class="ma-card"><span class="ma-k">Annonce du bureau</span><strong>Fête des voisins samedi</strong></div>
-              <div class="ma-card">
-                <span class="ma-k">Vote en cours</span><strong>Éclairage de l'allée</strong>
-                <span class="ma-bar"><i></i></span>
-                <span class="ma-row"><span>14 votes sur 24</span><span>encore 3 jours</span></span>
-              </div>
-            </div>
+        <!-- Application pour lotissements -->
+        <article class="plan" id="offre-lotissement" style="--accent:#2E6B3F; --accent-ink:#24563A">
+          <p class="plan-kicker">Pour s'organiser</p>
+          <h3>Application de lotissement</h3>
+          <p class="plan-pitch">Le bureau et les habitants de l'association, réunis dans le téléphone.</p>
+          <p class="plan-price"><strong>2 €</strong><span>/ mois par lot</span></p>
+          <p class="plan-sub">Exemple : 24 maisons, 48 € par mois pour toute l'association.</p>
+          <ul class="checks">
+            <li>Annonces du bureau et messages entre voisins</li>
+            <li>Calendrier partagé, avec rappels</li>
+            <li>Votes en ligne, une voix par lot</li>
+            <li>Documents et comptes de l'association</li>
+          </ul>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="#contact" data-besoin="Application lotissement">Demander l'application</a>
+            <a class="btn btn-ghost" href="https://demo-lotissement.jyssc.fr/decouvrir/habitant" target="_blank" rel="noopener">Essayer la démo</a>
           </div>
-          <div class="offer-body">
-            <div><span class="badge badge-live">Disponible</span></div>
-            <h3>Application pour lotissements</h3>
-            <p>
-              L'application privée des habitants et du bureau de l'association syndicale :
-              annonces, messages entre voisins, calendrier, votes en ligne, documents et
-              comptes de l'association. Tout se gère depuis le téléphone.
-            </p>
-            <p class="offer-price"><strong>2 €/mois par lot</strong><span>chaque mois ou une fois par an</span></p>
-            <p class="offer-note">
-              Exemple : un lotissement de 24 maisons, 48 € par mois, soit 576 € par an, pour
-              toute l'association. Essayez-la sans mot de passe, à la place d'un habitant ou
-              du président.
-            </p>
-            <ul class="tags">
-              <li class="tag">Votes en ligne</li>
-              <li class="tag">Annonces</li>
-              <li class="tag">Comptes</li>
-              <li class="tag">Mobile</li>
-            </ul>
-            <div class="offer-actions">
-              <a class="btn btn-primary btn-sm" href="#contact" data-besoin="Application lotissement">Demander l'application</a>
-              <a class="btn btn-ghost btn-sm" href="https://demo-lotissement.jyssc.fr/decouvrir/habitant" target="_blank" rel="noopener">Je suis habitant</a>
-              <a class="btn btn-ghost btn-sm" href="https://demo-lotissement.jyssc.fr/decouvrir/bureau" target="_blank" rel="noopener">Je suis président du bureau</a>
-            </div>
-          </div>
+          <p class="plan-foot">Essayer comme <a href="https://demo-lotissement.jyssc.fr/decouvrir/habitant" target="_blank" rel="noopener">habitant</a>
+          ou comme <a href="https://demo-lotissement.jyssc.fr/decouvrir/bureau" target="_blank" rel="noopener">président du bureau</a>.</p>
         </article>
+      </div>
 
-        <!-- Petits outils sur devis -->
-        <article class="offer">
-          <div class="scene" aria-hidden="true">
-            <div class="mock-dash">
-              <div class="mdb-kpi"><span>Demandes reçues</span><b>12<small>+4</small></b></div>
-              <div class="mdb-bars">
-                <i style="--h:32%;--o:10px"></i>
-                <i style="--h:50%;--o:13px"></i>
-                <i style="--h:66%;--o:16px"></i>
-                <i style="--h:88%;--o:20px"></i>
-              </div>
-              <div class="mdb-legend"><span>Juin</span><span>Juil.</span><span>Août</span><span>Sept.</span></div>
-            </div>
-          </div>
-          <div class="offer-body">
-            <div><span class="badge badge-quote">Sur devis</span></div>
-            <h3>Petits outils sur devis</h3>
-            <p>
-              Un formulaire en ligne, un tableau de bord, une tâche répétitive à
-              automatiser, un module pour votre métier : je réalise des outils simples qui répondent à un
-              besoin précis. Chaque demande est étudiée au cas par cas.
-            </p>
-            <p class="offer-price"><strong>Devis gratuit</strong></p>
-            <ul class="tags">
-              <li class="tag">Formulaires</li>
-              <li class="tag">Tableaux de bord</li>
-              <li class="tag">Automatisations</li>
-              <li class="tag">Modules métier</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Petit outil sur devis">Décrire mon besoin</a>
-          </div>
-        </article>
+      <!-- Petits outils sur devis -->
+      <div class="quote-band">
+        <div>
+          <h3>Un besoin plus particulier ?</h3>
+          <p>Un formulaire en ligne, un tableau de bord, une tâche répétitive à automatiser, un
+          module pour votre métier : je réalise de petits outils sur devis, étudiés au cas par cas.</p>
+        </div>
+        <div class="quote-band-action">
+          <span class="badge badge-quote">Devis gratuit</span>
+          <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Petit outil sur devis">Décrire mon besoin</a>
+        </div>
+      </div>
+
+      <!-- Pourquoi la location : le cœur de JYSSC -->
+      <div class="lease">
+        <div class="lease-text">
+          <h3>Pourquoi la location ?</h3>
+          <p>
+            Quand on se lance, personne ne sait de quoi demain sera fait : ni vous, ni moi.
+            Plutôt que de vous demander une grosse somme au départ, le prix de votre outil est
+            étalé sur plusieurs années, et vous payez peu chaque mois.
+          </p>
+          <p class="lease-strong">
+            Je vous fais confiance et je m'investis dans votre réussite. Et si les choses tournent
+            autrement, vous arrêtez, tout simplement : rien à rembourser, rien à régler pour la suite.
+          </p>
+          <a class="lease-link" href="#faq-arret">Et si j'arrête ? Tout est expliqué ici</a>
+        </div>
+        <ul class="orb-list lease-list">
+          <li><span class="orb orb-slate" style="--s:12px"></span><span><strong>Un petit prix chaque mois</strong>, plutôt qu'une grosse facture au départ.</span></li>
+          <li><span class="orb" style="--s:12px"></span><span><strong>Mises à jour et assistance comprises.</strong></span></li>
+          <li><span class="orb" style="--s:12px"></span><span><strong>Un outil qui évolue</strong> avec votre activité.</span></li>
+          <li><span class="orb" style="--s:12px"></span><span><strong>Vous arrêtez quand vous voulez</strong>, sans frais.</span></li>
+          <li><span class="orb" style="--s:12px"></span><span><strong>Vos contenus et vos données</strong> récupérables à tout moment.</span></li>
+          <li><span class="orb" style="--s:12px"></span><span><strong>Envie d'être autonome ?</strong> Votre site peut être racheté, d'autant moins cher que vous êtes resté longtemps.</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ===================================================== POURQUOI JYSSC -->
-  <section class="section section-alt" id="pourquoi">
+  <section class="section" id="pourquoi">
     <div class="container">
       <header class="section-head">
         <p class="eyebrow">Pourquoi JYSSC</p>
@@ -360,7 +345,7 @@
   </section>
 
   <!-- ===================================================== MA FAÇON DE TRAVAILLER -->
-  <section class="section" id="facon">
+  <section class="section section-alt" id="facon">
     <div class="container">
       <header class="section-head">
         <p class="eyebrow">Ma façon de travailler</p>
@@ -404,44 +389,6 @@
           </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================================================== RÉALISATIONS -->
-  <section class="section section-alt" id="realisations">
-    <div class="container">
-      <header class="section-head">
-        <p class="eyebrow">Réalisations</p>
-        <h2>Des réalisations à découvrir en ligne</h2>
-      </header>
-
-      <div class="projects" id="projects">
-        <!-- injecté depuis assets/js/projects.js -->
-      </div>
-
-      <p class="showcase-note">
-        <span class="orb" style="--s:14px" aria-hidden="true"></span>
-        <span>Et demain, le vôtre ? Si vous le souhaitez, votre site rejoint les réalisations
-        présentées ici, avec un lien vers chez vous.</span>
-      </p>
-
-      <aside class="upcoming" aria-labelledby="upcoming-title">
-        <div>
-          <h3 id="upcoming-title">Prochainement</h3>
-          <p>La gamme s'agrandit, un outil après l'autre.</p>
-        </div>
-        <ol class="upcoming-track">
-          <li class="u-item">
-            <span class="u-orb"><span class="orb" style="--s:24px"></span></span>
-            <span><small>En préparation</small>Devis pour artisans</span>
-          </li>
-          <li class="u-item">
-            <span class="u-orb"><span class="orb orb-slate" style="--s:17px"></span></span>
-            <span><small>Ensuite</small>Suivi de clients</span>
-          </li>
-        </ol>
-        <a class="btn btn-ghost btn-sm" href="#contact" data-besoin="Application métier">Être informé</a>
-      </aside>
     </div>
   </section>
 
@@ -501,89 +448,8 @@
     </div>
   </section>
 
-  <!-- ===================================================== TARIFS ET LOCATION -->
-  <section class="section section-alt" id="tarifs">
-    <div class="container">
-      <header class="section-head">
-        <p class="eyebrow">Tarifs</p>
-        <h2>Des prix clairs, sans engagement</h2>
-        <p>Le prix affiché est le prix payé : TVA non applicable. Vous réglez chaque mois ou
-        une fois par an, au choix.</p>
-      </header>
-
-      <div class="pricing">
-        <div class="rent">
-          <h3>Pourquoi la location ?</h3>
-          <div class="rent-intro">
-            <p>
-              Quand on se lance, personne ne sait de quoi demain sera fait : ni vous, ni moi.
-              Plutôt que de vous demander une grosse somme au départ, le prix de votre site est
-              étalé sur plusieurs années, et vous payez peu chaque mois.
-            </p>
-            <p>
-              Je vous fais confiance et je m'investis dans votre réussite. Et si les choses
-              tournent autrement, vous arrêtez, tout simplement : rien à rembourser, rien à régler
-              pour la suite.
-            </p>
-          </div>
-          <ul class="orb-list">
-            <li><span class="orb orb-slate" style="--s:12px"></span><span><strong>Un petit prix chaque mois</strong>, plutôt qu'une grosse facture au départ.</span></li>
-            <li><span class="orb" style="--s:12px"></span><span><strong>Mises à jour et assistance comprises.</strong></span></li>
-            <li><span class="orb" style="--s:12px"></span><span><strong>Un outil qui évolue</strong> avec votre activité.</span></li>
-            <li><span class="orb" style="--s:12px"></span><span><strong>Vous arrêtez quand vous voulez</strong>, sans frais.</span></li>
-            <li><span class="orb" style="--s:12px"></span><span><strong>Vos contenus et vos données</strong> récupérables à tout moment.</span></li>
-            <li><span class="orb" style="--s:12px"></span><span><strong>Envie d'être autonome ?</strong> Votre site peut être racheté, d'autant moins cher que vous êtes resté longtemps.</span></li>
-          </ul>
-        </div>
-
-        <article class="price-card">
-          <div class="price-head">
-            <h3>Site vitrine</h3>
-            <span class="badge badge-live">Disponible</span>
-          </div>
-          <p class="price"><strong>35 €</strong><span>/ mois</span></p>
-          <p class="price-note">Sans engagement · aucun frais de mise en service</p>
-          <ul class="checks">
-            <li>Site de 3 à 5 pages, sur ordinateur et téléphone</li>
-            <li>Formulaire de contact</li>
-            <li>Référencement de base inclus</li>
-            <li>Hébergement, connexion sécurisée (HTTPS) et sauvegardes</li>
-            <li>Mises à jour et assistance</li>
-          </ul>
-          <a class="btn btn-primary btn-block" href="#contact" data-besoin="Site vitrine">Demander mon site</a>
-        </article>
-      </div>
-
-      <div class="price-rows">
-        <div class="price-row price-row-shop">
-          <div>
-            <h3>Boutique en ligne</h3>
-            <p>69 €/mois jusqu'à 30 produits, 99 €/mois jusqu'à 100 produits, au-delà sur devis.
-            Sans engagement. Seuls les frais de votre prestataire de paiement s'ajoutent.</p>
-          </div>
-          <strong>Dès 69 €/mois</strong>
-        </div>
-        <div class="price-row">
-          <div>
-            <h3>Application pour lotissements</h3>
-            <p>2 € par mois et par lot, réglés chaque mois ou une fois par an. Exemple :
-            24 maisons, 48 € par mois, soit 576 € par an pour toute l'association.</p>
-          </div>
-          <strong>2 €/mois par lot</strong>
-        </div>
-        <div class="price-row">
-          <div>
-            <h3>Petits outils</h3>
-            <p>Étude au cas par cas, devis gratuit.</p>
-          </div>
-          <strong>Sur devis</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================================================== SÉCURITÉ ET VISIBILITÉ -->
-  <section class="section" id="securite">
+  <section class="section section-alt" id="securite">
     <div class="container">
       <header class="section-head">
         <p class="eyebrow">Sécurité et visibilité</p>
@@ -648,7 +514,7 @@
   </section>
 
   <!-- ===================================================== À PROPOS -->
-  <section class="section section-alt" id="apropos">
+  <section class="section" id="apropos">
     <div class="container about">
       <div>
         <p class="eyebrow">À propos</p>
@@ -679,7 +545,7 @@
   </section>
 
   <!-- ===================================================== QUESTIONS FRÉQUENTES -->
-  <section class="section" id="faq">
+  <section class="section section-alt" id="faq">
     <div class="container">
       <header class="section-head">
         <p class="eyebrow">Questions fréquentes</p>
@@ -740,7 +606,7 @@
   </section>
 
   <!-- ===================================================== CONTACT -->
-  <section class="section section-alt" id="contact">
+  <section class="section" id="contact">
     <div class="container contact">
       <div class="contact-intro">
         <p class="eyebrow">Contact</p>
@@ -874,9 +740,8 @@
       <p class="small muted"><strong>J</strong>ust <strong>Y</strong>our <strong>S</strong>mart <strong>S</strong>oftware <strong>C</strong>reation — sites vitrines et applications web pour artisans, indépendants et associations.</p>
     </div>
     <nav class="footer-nav" aria-label="Navigation de pied de page">
-      <a href="#offres">Offres</a>
       <a href="#realisations">Réalisations</a>
-      <a href="#tarifs">Tarifs</a>
+      <a href="#offres">Offres et tarifs</a>
       <a href="#faq">Questions</a>
       <a href="#contact">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
@@ -887,7 +752,7 @@
   </div>
 </footer>
 
-<script src="assets/js/projects.js?v=12"></script>
-<script src="assets/js/main.js?v=12"></script>
+<script src="assets/js/projects.js?v=13"></script>
+<script src="assets/js/main.js?v=13"></script>
 </body>
 </html>

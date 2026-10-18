@@ -133,7 +133,7 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 
 .section-head{ max-width:720px; margin:0 auto 3.2rem; text-align:center }
 .section-head p{ color:var(--muted); font-size:1.06rem; margin:0 }
-.section-head h2{ margin-bottom:.5em }
+.section-head h2{ margin-bottom:.5em; text-wrap:balance }
 
 /* --- Boutons ------------------------------------------------------------ */
 .btn{
@@ -383,6 +383,80 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
 .offer-actions{ margin-top:auto; display:flex; flex-wrap:wrap; gap:.5rem }
 .offer-note{ margin:-.4rem 0 1rem; font-size:.85rem; color:var(--muted) }
 .offer-note a{ font-weight:700; white-space:nowrap }
+
+/* ==========================================================================
+   OFFRES ET TARIFS — trois cartes tarifaires, aux couleurs de leur démo
+   ========================================================================== */
+.plans{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.4rem; align-items:stretch }
+.plan{
+  position:relative; display:flex; flex-direction:column; overflow:hidden;
+  padding:2rem 1.7rem 1.7rem; border-radius:var(--radius);
+  background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.plan::before{ content:""; position:absolute; inset:0 0 auto 0; height:5px; background:var(--accent) }
+.plan:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--line-strong) }
+.plan-kicker{
+  display:inline-flex; align-items:center; gap:.55rem; margin:0;
+  font-size:.72rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--accent-ink);
+}
+.plan-kicker::before{
+  content:""; width:11px; height:11px; border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, #fff 0, var(--accent) 55%, var(--accent-ink) 100%);
+  box-shadow:0 2px 5px rgba(0,0,0,.2);
+}
+.plan h3{ font-size:1.5rem; margin:.65rem 0 .35rem }
+.plan-pitch{ color:var(--muted); font-size:.96rem; margin:0; min-height:3.2em }
+.plan-price{ display:flex; align-items:baseline; gap:.4rem; margin:1.3rem 0 .25rem }
+.plan-price strong{ font-size:3.2rem; line-height:1; letter-spacing:-.05em; color:var(--brand-deep) }
+.plan-price span{ font-weight:700; color:var(--muted) }
+.plan-price small{ font-size:.95rem; font-weight:700; color:var(--muted) }
+.plan-sub{ font-size:.86rem; color:var(--muted); margin:0 0 1.3rem; min-height:2.7em }
+.plan .checks{ margin-bottom:1.6rem; padding-top:1.2rem; border-top:1px solid var(--line) }
+.plan-actions{ margin-top:auto; display:grid; gap:.55rem }
+.plan-actions .btn{ width:100% }
+.plan-foot{ margin:.8rem 0 0; font-size:.82rem; color:var(--muted); text-align:center }
+.plan-foot a{ font-weight:700 }
+
+/* Petits outils sur devis : un bandeau discret */
+.quote-band{
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+  margin-top:1.4rem; padding:1.5rem 1.8rem; border-radius:var(--radius);
+  background:var(--surface); border:1px dashed var(--line-strong);
+}
+.quote-band h3{ margin:0 0 .3rem; font-size:1.15rem }
+.quote-band p{ margin:0; color:var(--muted); font-size:.94rem; max-width:62ch }
+.quote-band-action{ display:flex; align-items:center; gap:.8rem; flex:none }
+.quote-band-action .btn{ white-space:nowrap }
+
+/* Pourquoi la location : le message le plus humain, mis en valeur */
+.lease{
+  position:relative; overflow:hidden;
+  display:grid; grid-template-columns:1.05fr .95fr; gap:2.8rem; align-items:center;
+  margin-top:2.6rem; padding:2.6rem 2.6rem; border-radius:var(--radius);
+  background:linear-gradient(135deg, var(--brand-deep), #1B4F8F 58%, var(--brand));
+  color:#D7E4F4; box-shadow:var(--shadow-lg);
+}
+.lease::after{
+  content:""; position:absolute; left:-80px; bottom:-120px; width:260px; height:260px; border-radius:50%;
+  background:var(--orb); opacity:.12; pointer-events:none;
+}
+.lease h3{ color:#fff; font-size:1.6rem; margin:0 0 1rem }
+.lease p{ color:#C9D9EE; font-size:1.02rem }
+.lease .lease-strong{ color:#fff; font-weight:700 }
+.lease-link{ display:inline-block; margin-top:.4rem; color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:3px }
+.lease-list{ position:relative; z-index:1; padding:1.6rem 1.6rem; border-radius:var(--radius-sm); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14) }
+.lease .lease-list li{ color:#C9D9EE }
+.lease .lease-list strong{ color:#fff }
+
+/* Lien d'une réalisation vers son offre */
+.project-offer{
+  display:inline-block; align-self:flex-start;
+  margin:-.4rem 0 1.2rem; font-size:.9rem; font-weight:700; color:var(--brand);
+}
+.project-offer::after{ content:"→"; display:inline-block; margin-left:.4rem; transition:transform .18s ease }
+.project-offer:hover{ text-decoration:none }
+.project-offer:hover::after{ transform:translateX(3px) }
 
 /* ==========================================================================
    POURQUOI JYSSC — chaque carte porte une vignette qui montre la promesse
@@ -790,6 +864,12 @@ fieldset{ margin:0; padding:0; border:0; min-width:0 }
   .upcoming{ grid-template-columns:1fr; gap:1.4rem }
   .upcoming-track{ grid-template-columns:repeat(2, 1fr); row-gap:1.2rem }
   .upcoming-track::before{ display:none }
+}
+@media (max-width: 1020px){
+  .plans{ grid-template-columns:1fr; max-width:560px; margin-inline:auto }
+  .plan-pitch,.plan-sub{ min-height:0 }
+  .lease{ grid-template-columns:1fr; gap:1.8rem; padding:2rem 1.6rem }
+  .quote-band{ flex-direction:column; align-items:flex-start; gap:1rem }
 }
 @media (max-width: 900px){
   .hero-inner,.about,.contact,.pricing,.trust,.approach{ grid-template-columns:1fr; gap:2rem }

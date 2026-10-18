@@ -95,6 +95,7 @@
             '<div class="project-head"><h3>' + esc(p.name) + "</h3>" + status + category + "</div>" +
             "<p>" + esc(p.description) + "</p>" +
             tags +
+            (p.offer ? '<a class="project-offer" href="' + esc(p.offer.href) + '">' + esc(p.offer.label) + "</a>" : "") +
             (action ? '<div class="project-actions">' + action + "</div>" : "") +
           "</div>" +
         "</article>"
@@ -104,7 +105,7 @@
 
   /* --- Apparition au défilement ----------------------------------------- */
   var targets = document.querySelectorAll(
-    ".offer, .why-card, .approach-col, .not-offered, .project, .upcoming, " +
+    ".offer, .plan, .quote-band, .lease, .why-card, .approach-col, .not-offered, .project, .upcoming, " +
     ".journey-steps li, .rent, .price-card, .price-row, .trust-panel, .stat, .form, " +
     ".about > div, .contact-intro"
   );
