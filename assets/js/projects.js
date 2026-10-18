@@ -18,6 +18,7 @@
    tags        : mots-clés
    url         : lien ("" pour masquer le bouton)
    urlLabel    : texte du bouton
+   links       : (optionnel) plusieurs boutons : [{ url: "…", label: "…" }, …]
    ========================================================================== */
 
 window.JYSSC_PROJECTS = [
@@ -89,6 +90,10 @@ window.JYSSC_PROJECTS = [
       "Découvrez-la sans mot de passe, comme habitant ou comme président du bureau.",
     tags: ["Annonces", "Votes en ligne", "Calendrier", "Comptes de l'association"],
     url: "https://demo-lotissement.jyssc.fr",
-    urlLabel: "Découvrir l'application"
+    urlLabel: "Découvrir l'application",
+    links: [
+      { url: "https://demo-lotissement.jyssc.fr/decouvrir/habitant", label: "Je suis habitant" },
+      { url: "https://demo-lotissement.jyssc.fr/decouvrir/bureau", label: "Je suis président du bureau" }
+    ]
   }
 ];

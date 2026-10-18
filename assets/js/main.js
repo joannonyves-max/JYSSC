@@ -78,12 +78,15 @@
           }).join("") + "</ul>"
         : "";
 
-      var external = p.url && p.url.indexOf("#") !== 0;
-      var action = p.url
-        ? '<a class="btn btn-sm btn-primary" href="' + esc(p.url) + '"' +
-          (external ? ' target="_blank" rel="noopener"' : "") + ">" +
-          esc(p.urlLabel || "En savoir plus") + "</a>"
-        : "";
+      // Plusieurs boutons possibles (liste « links »), sinon un seul (url + urlLabel).
+      var links = Array.isArray(p.links) && p.links.length
+        ? p.links
+        : (p.url ? [{ url: p.url, label: p.urlLabel || "En savoir plus" }] : []);
+      var action = links.map(function (l, i) {
+        var external = l.url.indexOf("#") !== 0;
+        return '<a class="btn btn-sm ' + (i === 0 ? "btn-primary" : "btn-ghost") + '" href="' + esc(l.url) + '"' +
+          (external ? ' target="_blank" rel="noopener"' : "") + ">" + esc(l.label) + "</a>";
+      }).join("");
 
       return (
         '<article class="project">' +
