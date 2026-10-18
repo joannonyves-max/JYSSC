@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#F4F8FC">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=13">
+<link rel="stylesheet" href="assets/css/style.css?v=14">
 </head>
 <body id="top">
 
@@ -639,11 +639,11 @@
           <legend class="form-legend"><span class="num">1</span>Vous</legend>
           <div class="form-row">
             <div class="field">
-              <label for="name">Nom</label>
+              <label for="name">Nom <span class="req" aria-hidden="true">*</span></label>
               <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
             </div>
             <div class="field">
-              <label for="email">Email</label>
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
               <input id="email" name="email" type="email" autocomplete="email" maxlength="150" required>
             </div>
           </div>
@@ -655,9 +655,9 @@
 
         <!-- 2. Votre activité -->
         <fieldset class="form-group">
-          <legend class="form-legend"><span class="num">2</span>Votre activité</legend>
+          <legend class="form-legend"><span class="num">2</span>Votre activité <span class="req" aria-hidden="true">*</span></legend>
           <div class="field">
-            <div class="pills" id="activite" role="radiogroup" aria-label="Votre activité">
+            <div class="pills" id="activite" role="radiogroup" aria-label="Votre activité" aria-required="true">
               <label class="pill"><input type="radio" name="activite" value="Artisan"><span>Artisan</span></label>
               <label class="pill"><input type="radio" name="activite" value="Indépendant / profession libérale"><span>Indépendant / libéral</span></label>
               <label class="pill"><input type="radio" name="activite" value="Commerce"><span>Commerce</span></label>
@@ -674,9 +674,9 @@
 
         <!-- 3. Votre besoin -->
         <fieldset class="form-group">
-          <legend class="form-legend"><span class="num">3</span>Votre besoin</legend>
+          <legend class="form-legend"><span class="num">3</span>Votre besoin <span class="req" aria-hidden="true">*</span></legend>
           <div class="field">
-            <div class="pills" id="besoin" role="radiogroup" aria-label="Votre besoin">
+            <div class="pills" id="besoin" role="radiogroup" aria-label="Votre besoin" aria-required="true">
               <label class="pill"><input type="radio" name="besoin" value="Site vitrine"><span>Site vitrine</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Boutique en ligne"><span>Boutique en ligne</span></label>
               <label class="pill"><input type="radio" name="besoin" value="Application lotissement"><span>Application lotissement</span></label>
@@ -686,7 +686,7 @@
             </div>
           </div>
           <div class="field">
-            <label for="message">Votre objectif</label>
+            <label for="message">Votre objectif <span class="req" aria-hidden="true">*</span></label>
             <textarea id="message" name="message" rows="4" maxlength="5000" required
                       placeholder="Qu'est-ce que cet outil doit changer pour vous ?"></textarea>
           </div>
@@ -719,9 +719,12 @@
 
         <button class="btn btn-primary btn-block" type="submit">Envoyer ma demande</button>
         <p class="form-note small muted">
-          Vous recevrez une copie de votre demande par email. Les informations transmises
-          servent uniquement à y répondre.
-          <a href="mentions-legales.html#donnees">En savoir plus</a>.
+          Les champs marqués d'un astérisque (*) sont obligatoires. Vos informations sont
+          utilisées par Yves Joannon (JYSSC), responsable du traitement, uniquement pour répondre
+          à votre demande ; une copie vous est envoyée par email. Vous pouvez y accéder, les
+          corriger ou les faire supprimer en écrivant à
+          <a href="mailto:contact@jyssc.fr">contact@jyssc.fr</a>.
+          <a href="mentions-legales.html#donnees">Vos données personnelles</a>.
         </p>
         <p class="form-status" id="formStatus" role="status"></p>
       </form>
@@ -745,6 +748,7 @@
       <a href="#faq">Questions</a>
       <a href="#contact">Contact</a>
       <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mentions-legales.html#donnees">Données personnelles</a>
     </nav>
   </div>
   <div class="container footer-bottom">
@@ -752,7 +756,7 @@
   </div>
 </footer>
 
-<script src="assets/js/projects.js?v=13"></script>
-<script src="assets/js/main.js?v=13"></script>
+<script src="assets/js/projects.js?v=14"></script>
+<script src="assets/js/main.js?v=14"></script>
 </body>
 </html>
