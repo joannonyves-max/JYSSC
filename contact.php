@@ -50,7 +50,7 @@ if ($champ('website') !== '') {
 $CHOIX = [
     'activite' => ['Artisan', 'Indépendant / profession libérale', 'Commerce', 'Association', 'Particulier', 'Autre'],
     'besoin'   => ['Site vitrine', 'Boutique en ligne', 'Application lotissement', 'Application métier', 'Petit outil sur devis', 'Autre'],
-    'formule'  => ['Abonnement mensuel', 'Paiement en une fois', 'Je ne sais pas encore'],
+    'formule'  => ['Abonnement mensuel', 'Une fois par an', 'Je ne sais pas encore'],
     'delai'    => ['Dès que possible', 'Dans 1 à 3 mois', 'Dans plus de 3 mois', 'Pas de date précise'],
 ];
 $choix = static function (string $cle) use ($champ, $CHOIX): string {
